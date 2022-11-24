@@ -1,0 +1,23 @@
+god queries
+
+SELECT characters.first_name,characters.surname,characters.gender,characters.age,characters.deaths,characters.character_type,gods.responsibility,characters.auth_notes,characters.comments FROM characters, gods WHERE characters.character_type='Goddess' OR characters.character_type='God' ORDER BY characters.first_name ASC;
+
+demon queries
+
+SELECT characters.first_name,characters.surname,characters.gender,characters.age,characters.deaths,characters.character_type,demon.demon_type,demon.ability,characters.auth_notes,characters.comments FROM characters, demon WHERE characters.character_type='Demon' ORDER BY `characters`.`first_name` ASC
+
+giants queries
+
+SELECT characters.first_name,characters.surname,characters.gender,characters.age,characters.deaths,characters.character_type,giants.role,characters.auth_notes,characters.comments FROM characters, giants WHERE characters.character_type='Giant' OR characters.character_type='Giantess' ORDER BY characters.first_name ASC;
+
+monsters queries
+
+SELECT characters.first_name,characters.surname,characters.gender,characters.age,characters.deaths,characters.character_type,monsters.monster_type,monsters.abilities,characters.auth_notes,characters.comments FROM characters, monsters WHERE characters.character_type='Monster' ORDER BY characters.first_name ASC;
+
+mortals queries
+
+SELECT characters.first_name,characters.surname,characters.gender,characters.age,characters.deaths,characters.character_type,mortals.job,characters.auth_notes,characters.comments FROM characters, mortals WHERE characters.character_type='Mortal' ORDER BY characters.first_name ASC;
+
+primordials queries
+
+SELECT characters.first_name,characters.surname,characters.gender,characters.age,characters.deaths,characters.character_type,primordials.department,characters.auth_notes,characters.comments FROM characters, primordials WHERE characters.character_type='Primordial' ORDER BY characters.first_name ASC;
