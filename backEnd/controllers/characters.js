@@ -41,4 +41,76 @@ getById = async (req, res) =>{
     }
 }
 
-module.exports = {getAll, getByDesc, getById};
+create = async (req, res) => {
+    const character = {
+        first_name: req.body.first_name,
+        surname: req.body.surname,
+        gender: req.body.gender,
+        age: req.body.age,
+        deaths: req.body.deaths,
+        character_type: req.body.character_type,
+        link_id: req.body.link_id,
+        auth_notes: req.body.auth_notes,
+        comments: req.body.comments
+    };
+
+    try{
+        if (character.first_name==null || character.gender==null || character.age==null || character.deaths==null ||character.link_id==null){
+            throw new Error("Essential fields missing");
+        }
+
+        await Character.create(character);
+        res.status(201).json(character);
+    }
+
+    catch (error){
+        utilities.formatErrorResponse(res, 400, error.message);
+    }
+}
+
+deleting = async (req, res) =>{
+    const id =req.body.id;
+    try{
+        const deleted = await Character.destroy({where: {id: id}});
+
+        if (deleted==0){
+            throw new Error("Id not found");
+        }
+
+        res.status(200).send("Character deleted");
+    }
+    catch(error){
+        utilities.formatErrorResponseq(res,404,error.message);
+    }
+}
+
+update = async (req, res) =>{
+    const id =req.body.id;
+
+    const character = {
+        first_name: req.body.first_name,
+        surname: req.body.surname,
+        gender: req.body.gender,
+        age: req.body.age,
+        deaths: req.body.deaths,
+        character_type: req.body.character_type,
+        link_id: req.body.link_id,
+        auth_notes: req.body.auth_notes,
+        comments: req.body.comments
+    };
+
+    try{
+        if (id==null || character.first_name==null || character.gender==null || character.age==null || character.deaths==null ||character.link_id==null){
+            throw new Error("Essential fields missing");
+        }
+
+        await Character.update(character, {where: {id: id}});
+        
+        res.status(200).json(character);
+    }
+    catch (error){
+        utilities.formatErrorResponse(res, 400, error.message);
+    }
+}
+
+module.exports = {getAll, getByDesc, getById, create, deleting, update};
