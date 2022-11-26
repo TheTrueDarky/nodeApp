@@ -2,10 +2,17 @@ const router = require('../routes/characters');
 const utilities = require('../utilities/utility');
 const db = require('../models');
 const Character = db.character;
+const Link = db.link;
 
 getAll = async (req, res) =>{
-    const character = await Character.findAll();
-
+    const character = await Character.findAll({
+        order:['id'],
+        include: [{
+            model: Link,
+            required: true
+        }]
+    });
+    
 
     res.status(200).json(tool);
 }
@@ -14,7 +21,12 @@ getByDesc = async (req, res) =>{
     const desc =req.params.value;
     try{
     const character = await Character.findAll(
-    {where: {description: desc}});
+    {where: {description: desc},
+        include: [{
+            model: Link,
+            required: true}]
+    });
+
     
     if(character.length==0){
         throw new Error("Unable to find character with description " + desc);
@@ -29,7 +41,8 @@ getByDesc = async (req, res) =>{
 getById = async (req, res) =>{
     const id =req.params.id;
     try {
-            const character = await Character.findByPk(id);
+            const character = await Character.findByPk(id,
+                {include: [{model: ToolCategory, required: true}]});
 
             if(character==null || character.length==0){
                 throw new Error("Unable to find Character with id " + id);

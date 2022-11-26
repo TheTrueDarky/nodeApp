@@ -1,5 +1,6 @@
 const config = require("../config/config");
 const Character = require("././character");
+const Link = require("./link");
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
@@ -25,6 +26,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.Character = Character(sequelize, Sequelize);
+db.toolCategory = ToolCategory(sequelize, Sequelize);
+db.tool = Tool(sequelize, Sequelize, db.toolCategory);
 
 module.exports = db;
