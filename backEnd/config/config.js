@@ -1,6 +1,6 @@
 module.exports = {
     HOST: "localhost",
-    PORT: 3306,
+    PORT: 3306,//3306
     USER: "root",
     PASSWORD: "",
     DB: "characters_db",
