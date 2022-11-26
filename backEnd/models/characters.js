@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize, link) => {
-    const Character = sequelize.define("character",
+    const Character = sequelize.define("characters",
     {
     first_name: {
     type: Sequelize.STRING
