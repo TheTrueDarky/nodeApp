@@ -5,6 +5,9 @@ const linksRouter = require('./routes/link');
 const demonsRouter = require('./routes/demon')
 const giantsRouter = require('./routes/giants')
 const godsRouter = require('./routes/gods')
+const monstersRouter = require('./routes/monsters')
+const mortalsRouter = require('./routes/mortals')//primordials
+const primordialsRouter = require('./routes/primordials')
 
 const app = express();
 app.use(express.json());
@@ -15,6 +18,9 @@ app.use("/link",linksRouter);
 app.use("/demon",demonsRouter);
 app.use("/giant",giantsRouter);
 app.use("/gods",godsRouter);
+app.use("/monsters",monstersRouter);
+app.use("/mortals",mortalsRouter);
+app.use("/primordials",primordialsRouter);
 
 app.use((req, res) =>
  res.status(404).send("Sorry page not found!"));

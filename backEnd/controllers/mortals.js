@@ -1,12 +1,12 @@
-const router = require('../routes/gods');
+const router = require('../routes/mortals');
 const utilities = require('../utilities/utility');
 const db = require('../models');
-const God = db.gods;
+const Mortal = db.mortals;
 //const Link = db.link;
 
 getAll = async (req, res) =>{
-    const god = await God.findAll();
-    res.status(200).json(god);
+    const mortal = await Mortal.findAll();
+    res.status(200).json(mortal);
 }
     
 
@@ -15,12 +15,12 @@ getAll = async (req, res) =>{
 getById = async (req, res) =>{
     const id =req.params.id;
     try{
-        const god = await God.findByPk(id);
+        const mortal = await Mortal.findByPk(id);
         
-        if(god==null || god.length==0){
-            throw new Error("Unable to find god with id " + id);
+        if(mortal==null || mortal.length==0){
+            throw new Error("Unable to find mortal with id " + id);
         }
-        res.status(200).json(god);
+        res.status(200).json(mortal);
     }
 
     catch(error){
@@ -29,17 +29,17 @@ getById = async (req, res) =>{
 }
 
 create = async (req, res) => {
-    const god = {
-        responsibility: req.body.responsibility
+    const mortal = {
+        job: req.body.job
     };
 
     try{
-        if (god.responsibility==null){
+        if (mortal.job==null){
             throw new Error("Essential fields missing");
         }
 
-        await God.create(god);
-        res.status(201).json(god);
+        await Mortal.create(mortal);
+        res.status(201).json(mortal);
     }
 
     catch (error){
@@ -50,13 +50,13 @@ create = async (req, res) => {
 deleting = async (req, res) =>{
     const id =req.body.id;
     try{
-        const deleted = await God.destroy({where: {id: id}});
+        const deleted = await Mortal.destroy({where: {id: id}});
 
         if (deleted==0){
             throw new Error("Id not found");
         }
 
-        res.status(200).send("God deleted");
+        res.status(200).send("Mortal deleted");
     }
     catch(error){
         utilities.formatErrorResponseq(res,404,error.message);
@@ -66,18 +66,18 @@ deleting = async (req, res) =>{
 update = async (req, res) =>{
     const id =req.body.id;
 
-    const god = {
-        responsibility: req.body.responsibility
+    const monster = {
+        job: req.body.job
     };
 
     try{
-        if (id==null || god.responsibility==null){
+        if (id==null || mortal.job==null){
             throw new Error("Essential fields missing");
         }
 
-        await Giant.update(god, {where: {id: id}});
+        await Mortal.update(mortal, {where: {id: id}});
         
-        res.status(200).json(god);
+        res.status(200).json(mortal);
     }
     catch (error){
         utilities.formatErrorResponse(res, 400, error.message);

@@ -4,6 +4,9 @@ const Link = require("./link");
 const Demon = require("./demon");
 const Giant = require("./giants"); // There be Giants!!!
 const God = require("./gods"); 
+const Monster = require("./monsters");
+const Mortal = require("./mortals"); //primordials
+const Primordial = require("./primordials");
 
 const Sequelize = require("sequelize");
 //const characters = require("././characters");
@@ -35,7 +38,10 @@ db.sequelize = sequelize;
 db.demon = Demon(sequelize, Sequelize);
 db.giant = Giant(sequelize, Sequelize);
 db.gods = God(sequelize, Sequelize);
-db.link = Link(sequelize, Sequelize,db.demon, db.giant, db.gods); //add f keys from table here eg db.link
+db.monsters = Monster(sequelize, Sequelize);
+db.mortals = Mortal(sequelize, Sequelize);
+db.primordials = Primordial(sequelize, Sequelize);
+db.link = Link(sequelize, Sequelize,db.demon, db.giant, db.gods, db.monsters, db.mortals, db.primordials); //add f keys from table here eg db.link
 db.character = Character(sequelize, Sequelize, db.link);
 
 module.exports = db;
