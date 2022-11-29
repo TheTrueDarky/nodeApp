@@ -1,11 +1,9 @@
-module.exports = (sequelize, Sequelize) => {
+module.exports = (sequelize, Sequelize, demon, giants, gods) => {//add foreign table here
     const Link =
         sequelize.define("link",
     {
 
-        description: {
-            type: Sequelize.STRING
-        }
+        
     },
     {
         timestamps: false,
@@ -14,5 +12,12 @@ module.exports = (sequelize, Sequelize) => {
     }
     );
    
+
+    Link.belongsTo(demon, { foreignKey: 'demon_id' });
+    Link.belongsTo(giants, { foreignKey: 'giant_id' });
+    Link.belongsTo(gods, { foreignKey: 'god_id' });
+    //Link.belongsTo(monsters, { foreignKey: 'monster_id' });
+    //Link.belongsTo(mortal, { foreignKey: 'mortal_id' });
+    //Link.belongsTo(primordials, { foreignKey: 'dprimordial_id' });
     return Link;
 }

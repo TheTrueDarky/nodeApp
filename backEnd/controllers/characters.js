@@ -14,7 +14,7 @@ getAll = async (req, res) =>{
     });
     
 
-    res.status(200).json(tool);
+    res.status(200).json(character);
 }
 
 getByDesc = async (req, res) =>{

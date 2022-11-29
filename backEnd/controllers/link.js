@@ -10,12 +10,12 @@ getAll = async (req, res) =>{
 getById = async (req, res) =>{
     const id =req.params.id;
     try{
-        const toolCategory = await ToolCategory.findByPk(id);
+        const link = await Link.findByPk(id);
         
-        if(toolCategory==null || toolCategory.length==0){
-            throw new Error("Unable to find Tool with id " + id);
+        if(link==null || link.length==0){
+            throw new Error("Unable to find link with id " + id);
         }
-        res.status(200).json(toolCategory);
+        res.status(200).json(link);
     }
 
     catch(error){
