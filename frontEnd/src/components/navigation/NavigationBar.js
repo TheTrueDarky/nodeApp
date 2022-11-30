@@ -10,6 +10,10 @@ function NavigationBar() {
             <Navbar bg='dark' expand='lg' className='navbar-dark'>
                 <Container>
                     <Navbar.Brand as={Link} to='/'>Characters API</Navbar.Brand>
+                    <Navbar.Toggle aria-controls='navbar-toggle' />
+                    <Navbar.Collapse id="navbar-toggle">
+                        
+                    </Navbar.Collapse>
                 </Container>
             </Navbar>
         </div>
