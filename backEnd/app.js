@@ -9,9 +9,12 @@ const monstersRouter = require('./routes/monsters')
 const mortalsRouter = require('./routes/mortals')//primordials
 const primordialsRouter = require('./routes/primordials')
 
+const cors = require('cors');
+
 const app = express();
 app.use(express.json());
 app.use(logger('dev'));
+app.use(cors());
 
 app.use("/characters", charactersRouter);
 app.use("/link",linksRouter);
@@ -21,6 +24,8 @@ app.use("/gods",godsRouter);
 app.use("/monsters",monstersRouter);
 app.use("/mortals",mortalsRouter);
 app.use("/primordials",primordialsRouter);
+
+
 
 app.use((req, res) =>
  res.status(404).send("Sorry page not found!"));
