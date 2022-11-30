@@ -9,4 +9,17 @@ const  getCharacters = async () => {
     return response;
 };
 
-export {getCharacters};
+const addCharacters = async (character) => {
+    let response = await axios.post(url + "characters", character, {
+        headers: {
+            'Content-Type':'multipart/form-data'
+        }
+        
+    }).then(response => {
+        return response.data;
+    });
+
+    return response;
+}
+
+export {getCharacters, addCharacters};

@@ -18,6 +18,6 @@ module.exports = (sequelize, Sequelize, demon, giants, gods, monsters, mortals, 
     Link.belongsTo(gods, { foreignKey: 'god_id' });
     Link.belongsTo(monsters, { foreignKey: 'monster_id' });
     Link.belongsTo(mortals, { foreignKey: 'mortal_id' });
-    Link.belongsTo(primordials, { foreignKey: 'dprimordial_id' });
+    Link.belongsTo(primordials, { foreignKey: 'primordial_id' });
     return Link;
 }
