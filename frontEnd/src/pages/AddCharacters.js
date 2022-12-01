@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Form, Container, Button, Alert } from 'react-bootstrap';
 import {addCharacter} from '../actions/actions';
 import './AddCharacters.css';
+import Dropdown from "../components/dropdown/Dropdown";
 
 function AddCharacters() {
     const [first_name, setFirst_Name] = useState('');
@@ -88,11 +89,12 @@ function AddCharacters() {
                     </Form.Group>
                     <Form.Group className='mb-4' controlId='gender'>
                         <Form.Label>Gender:</Form.Label>
-                        <Form.Control 
+                        {/* <Form.Control 
                             type='text'
                             placeholder='Enter gender'
                             onChange={e => setGender(e.target.value)}
-                            required/>
+                            required/> */}
+                            <Dropdown placeHolder="Select..." />
                     </Form.Group>
                     <Form.Group className='mb-4' controlId='age'>
                         <Form.Label>Age:</Form.Label>
