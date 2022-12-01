@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from 'react';
 
 import "./Dropdown.css";
 
@@ -11,13 +12,30 @@ const Icon = () => {
 };
 
 const Dropdown = ({ placeHolder, options }) => {
+    const [showMenu, setShowMenu] = useState(false);
+
+    useEffect(() => {
+        const handler = setShowMenu(false);
+
+        window.addEventListener("click", handler);
+        return () => {
+            window.removeEventListener("click", handler);
+        };
+    });
+
+    const handleInputClick = (e) => {
+        e.stopPropagation();
+        setShowMenu(!showMenu);
+    };                                                                                              
+
   const getDisplay = () => {
     return placeHolder;
   };
 
   return (
     <div className="dropdown-container">
-      <div className="dropdown-input">
+      <div onClick={handleInputClick} className="dropdown-input">
+        {/* {showMenu && ()} */}
         <div className="dropdown-menu">
             {options.map((option) => (
                 <div key={option.value} className="dropdown-item">
