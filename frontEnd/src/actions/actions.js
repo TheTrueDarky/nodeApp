@@ -1,7 +1,7 @@
 import axios from 'axios';
 const url = 'http://localhost:8900/';
 
-const  getCharacters = async () => {
+const  getCharacter = async () => {
     let response = await axios.get (url + "characters").then(response => {
         return response.data;
     });
@@ -9,7 +9,7 @@ const  getCharacters = async () => {
     return response;
 };
 
-const addCharacters = async (character) => {
+const addCharacter = async (character) => {
     let response = await axios.post(url + "characters", character, {
         headers: {
             'Content-Type':'multipart/form-data'
@@ -22,4 +22,4 @@ const addCharacters = async (character) => {
     return response;
 }
 
-export {getCharacters, addCharacters};
+export {getCharacter, addCharacter};

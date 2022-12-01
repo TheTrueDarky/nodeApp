@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Form, Container, Button, Alert } from 'react-bootstrap';
-import {AddCharacter} from '../actions/actions';
+import {addCharacter} from '../actions/actions';
 import './AddCharacters.css';
 
 function AddCharacters() {
@@ -17,7 +17,7 @@ function AddCharacters() {
     
     const submitData = async (character) => {
         try {
-            let response = await AddCharacter(tool);
+            let response = await addCharacter(character);
 
             if (response) {
                 setSuccess(true);
