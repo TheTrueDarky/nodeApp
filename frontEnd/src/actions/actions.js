@@ -9,6 +9,14 @@ const  getCharacter = async () => {
     return response;
 };
 
+const  getDemon = async () => {
+    let response = await axios.get (url + "demons").then(response => {
+        return response.data;
+    });
+
+    return response;
+};
+
 const addCharacter = async (character) => {
     let response = await axios.post(url + "characters", character, {
         headers: {
@@ -22,4 +30,4 @@ const addCharacter = async (character) => {
     return response;
 }
 
-export {getCharacter, addCharacter};
+export {getCharacter, addCharacter, getDemon};
