@@ -1,0 +1,16 @@
+
+.alert {
+    text-align: left;
+    max-width: 50rem;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.card-group {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+
+}
