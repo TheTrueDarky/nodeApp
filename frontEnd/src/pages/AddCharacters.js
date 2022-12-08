@@ -102,7 +102,7 @@ function AddCharacters() {
                         <Form.Label>Age:</Form.Label>
                         <Form.Control 
                             type='number'
-                            step='0.01'
+                            step='1'
                             placeholder='0'
                             onChange={e => setAge(e.target.value)}
                             required/>
@@ -111,18 +111,29 @@ function AddCharacters() {
                         <Form.Label>Deaths:</Form.Label>
                         <Form.Control 
                             type='number'
-                            step='0.01'
+                            step='1'
                             placeholder='0'
                             onChange={e => setDeaths(e.target.value)}
                             required/>
                     </Form.Group>
                     <Form.Group className='mb-4' controlId='character_type'>
                         <Form.Label>Character type:</Form.Label>
-                       <Form.Control 
+                       {/* <Form.Control 
                             type='text'
                             placeholder='Enter type'
                             onChange={e => setCharacter_Type(e.target.value)}
-                            required/> 
+                            required/>  */}
+                            <Form.Select aria-label="Default select example">
+                                <option>Choose type of character</option>
+                                <option value="1">Demon</option>
+                                <option value="2">Giant</option>
+                                <option value="3">God</option>
+                                <option value="3">Goddess</option>
+                                <option value="4">Monster</option>
+                                <option value="5">Mortal</option>
+                                <option value="6">Primordial</option>
+                            </Form.Select>
+                            
                            
                     </Form.Group>
                     <Form.Group className='mb-4' controlId='auth_notes'>
