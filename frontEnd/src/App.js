@@ -25,8 +25,8 @@ function App() {
         <NavigationBar />
         <Routes>
           <Route index element={<ViewCharacters />} />
-          <Route path="viewc" element={<ViewCharacters />} />
-          <Route path="viewd" element={<ViewDemons />} />
+          <Route path="viewchar" element={<ViewCharacters />} />
+          <Route path="viewdem" element={<ViewDemons />} />
           <Route path="viewgi" element={<ViewGiants />} />
           <Route path="viewgo" element={<ViewGods />} />
           <Route path="viewmon" element={<ViewMonsters />} />
