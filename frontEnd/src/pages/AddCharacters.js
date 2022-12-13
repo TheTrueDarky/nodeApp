@@ -24,6 +24,7 @@ function AddCharacters() {
 
             if (response) {
                 setSuccess(true);
+                console.log("Yoda");
             }
         }
         catch (e) {
@@ -72,7 +73,7 @@ function AddCharacters() {
         <div className='add-characters'>
             <h1>Add Characters</h1>
             <Container>
-                <Form>
+                <Form onSubmit={submitCharacter}>
                     <Form.Group className='mb-4' controlId='first_name'>
                         <Form.Label>First name:</Form.Label>
                         <Form.Control 
@@ -118,20 +119,21 @@ function AddCharacters() {
                     </Form.Group>
                     <Form.Group className='mb-4' controlId='character_type'>
                         <Form.Label>Character type:</Form.Label>
-                       {/* <Form.Control 
+                        {/* <Form.Control 
                             type='text'
                             placeholder='Enter type'
                             onChange={e => setCharacter_Type(e.target.value)}
-                            required/>  */}
-                            <Form.Select aria-label="Default select example">
+                            required/> */}
+                            <Form.Select aria-label="Default select example" onChange={e => setCharacter_Type(e.target.value)}
+                            required>
                                 <option>Choose type of character</option>
-                                <option value="1">Demon</option>
-                                <option value="2">Giant</option>
-                                <option value="3">God</option>
-                                <option value="3">Goddess</option>
-                                <option value="4">Monster</option>
-                                <option value="5">Mortal</option>
-                                <option value="6">Primordial</option>
+                                <option value="demon">Demon</option>
+                                <option value="giant">Giant</option>
+                                <option value="god">God</option>
+                                <option value="goddess">Goddess</option>
+                                <option value="monster">Monster</option>
+                                <option value="mortal">Mortal</option>
+                                <option value="primordial">Primordial</option>
                             </Form.Select>
                             
                            

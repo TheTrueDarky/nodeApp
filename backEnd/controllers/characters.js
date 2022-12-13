@@ -68,7 +68,7 @@ create = async (req, res) => {
     };
 
     try{
-        if (character.first_name==null || character.gender==null || character.age==null || character.deaths==null ||character.link_id==null){
+        if (character.first_name==null || character.gender==null || character.age==null || character.deaths==null){
             throw new Error("Essential fields missing");
         }
 
