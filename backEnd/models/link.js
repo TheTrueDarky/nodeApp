@@ -3,6 +3,11 @@ module.exports = (sequelize, Sequelize, demon, giants, gods, monsters, mortals, 
         sequelize.define("link",
     {
 
+        id:{
+            primaryKey: true,
+            type: Sequelize.INTEGER,
+            autoIncrement: true
+        }
         
     },
     {

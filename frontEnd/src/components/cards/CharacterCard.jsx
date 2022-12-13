@@ -7,6 +7,7 @@ function CharacterCard(props) {
         let url = 'http://localhost:8900' + route;
         return url;
     }
+    console.log(props);
     return (
         <Card key={props.id}>
             <Card.Body>
@@ -16,6 +17,9 @@ function CharacterCard(props) {
                 <Card.Text>Age: {props.age}</Card.Text>
                 <Card.Text>Deaths: {props.deaths}</Card.Text>
                 <Card.Text>Character type: {props.character_type}</Card.Text>
+                <Card.Text>link id: {props.link_id}</Card.Text>
+                <Card.Text>demon id: {props.demon_id}</Card.Text>
+                <Card.Text>demon type: {props.demon_type}</Card.Text>
                 <Card.Text>Author notes: {props.auth_notes}</Card.Text>
                 <Card.Text>Comments: {props.comments}</Card.Text>
             </Card.Body>

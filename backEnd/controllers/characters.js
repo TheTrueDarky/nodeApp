@@ -4,12 +4,45 @@ const db = require('../models');
 const Character = db.character;
 const Link = db.link;
 
+const Gods = db.gods;
+const Demon = db.demon;
+const Monsters = db.monsters;
+const Mortal = db.mortals;
+const Primordials = db.primordials;
+const Giants = db.giant;
+
 getAll = async (req, res) =>{
     const character = await Character.findAll({
-        order:['id'],
         include: [{
-            model: Link,
-            required: true
+            model: Demon,
+            through: {
+                attributes: []
+            }
+        }, {
+            model: Gods,
+            through: {
+                attributes: []
+            }
+        },{
+            model: Monsters,
+            through: {
+                attributes: []
+            }
+        },{
+            model: Mortal,
+            through: {
+                attributes: []
+            }
+        }, {
+            model: Giants,
+            through: {
+                attributes: []
+            }
+        },{
+            model: Primordials,
+            through: {
+                attributes: []
+            }
         }]
     });
     

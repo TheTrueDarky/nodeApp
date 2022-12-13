@@ -15,7 +15,7 @@ function ViewCharacters() {
                 try {
                     let data = await getCharacter();
                     setCharacters(data);
-                    //console.log(data)
+                    console.log(data)
                 }
                 catch (e) {
                     setError(e.message);
@@ -41,10 +41,14 @@ function ViewCharacters() {
                                 age={character.age}
                                 deaths={character.deaths}
                                 character_type={character.character_type}
+                                link_id={character.link_id}
+                                
+                                demon_type={"TESTING"}
                                 auth_notes={character.auth_notes}
                                 comments={character.comments}
 
                                 />
+
                             })
                         }
                     </CardGroup>

@@ -42,6 +42,6 @@ db.monsters = Monster(sequelize, Sequelize);
 db.mortals = Mortal(sequelize, Sequelize);
 db.primordials = Primordial(sequelize, Sequelize);
 db.link = Link(sequelize, Sequelize,db.demon, db.giant, db.gods, db.monsters, db.mortals, db.primordials); //add f keys from table here eg db.link
-db.character = Character(sequelize, Sequelize, db.link);
+db.character = Character(sequelize, Sequelize, db.demon, db.giant, db.gods, db.monsters, db.mortals, db.primordials);
 
 module.exports = db;
