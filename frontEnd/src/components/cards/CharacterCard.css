@@ -1,6 +1,8 @@
 .card {
     width: 18rem;
     margin: 1rem;
+    text-align: left;
+    font-size: 15px;
 }
 @media (min-width: 576px){
     .card {

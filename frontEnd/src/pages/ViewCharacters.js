@@ -35,6 +35,7 @@ function ViewCharacters() {
                             characters.map((character) => {
                                 return <CharacterCard 
                                 key={character.id}
+                                id={character.id}
                                 first_name={character.first_name}
                                 surname={character.surname}
                                 gender={character.gender}
@@ -46,6 +47,8 @@ function ViewCharacters() {
                                 demon_type={"TESTING"}
                                 auth_notes={character.auth_notes}
                                 comments={character.comments}
+                                
+
 
                                 />
 

@@ -20,6 +20,7 @@ function UpdateCharacters(){
 
     const { id } = useParams();
     const [characters, setCharacters] = useState([]);
+    const [char, setChar] = useState([]);
     
     useEffect(() => {
         if (characters.length <= 0){
@@ -27,25 +28,30 @@ function UpdateCharacters(){
                 try {
                     let data = await getCharacter(id);
                     setCharacters(data);
+                   //Test Load
                     console.log(data)
                 }
                 catch (e) {
                     setError(e.message);
                 }
             }
+            //?
+            //fetches all data of characters but might cause error
             fetchData();
         }
     }, [characters])
-console.log(characters);
+    //logs the character
+//console.log(characters);
 
 
-const submitData = async (character) => {
+const submitData = async (c) => {
     try {
-        let response = await updateCharacter(character);
+        console.log(c)
+        let response = await updateCharacter(c);
 
         if (response) {
             setSuccess(true);
-            
+         //   console.log(setSuccess);
         }
     }
     catch (e) {
@@ -58,24 +64,34 @@ const submitCharacter = (e) => {
 
     setSuccess(false);
     setError('');
-
-    if (first_name && surname && gender && age && deaths && character_type && auth_notes && comments) {
-        let character = {
-            first_name: first_name,
-            surname: surname,
-            gender: gender,
-            age: age,
-            deaths: deaths,
-            character_type: character_type,
-            auth_notes: auth_notes,
-            comments: comments
-        };
+    console.log(first_name);
+    if (first_name != null|| surname || gender || age || deaths || character_type || auth_notes || comments) {
         
-        submitData(character);
+        const charr = ({
+            id: id,
+            first_name: (first_name == "") ? null : first_name,
+            surname: (surname == "") ? null : surname,
+            gender: (gender == "") ? null : gender,
+            age: (age == 0) ? null : age,
+            deaths: (deaths == 0) ? null : deaths,
+            character_type: (character_type == "") ? null : character_type,
+            auth_notes: null,
+            comments: null
+        });
+
+        for (const [key, value] of Object.entries(charr)) {
+            if (value == null) {
+                delete charr[key]
+            }
+        }
+        
+        console.log(charr);
+        
+        submitData(charr);
     }
 
     else {
-        setError('All fields must contain a value');
+        setError('A field must contain a value');
     }
 
     <Container>
@@ -101,7 +117,7 @@ return (
                         type='text'
                         placeholder={characters.first_name}
                         onChange={e => setFirst_Name(e.target.value)}
-                        required/>
+                        />
                 </Form.Group>
                 <Form.Group className='mb-4' controlId='surname'>
                     <Form.Label>Surname:</Form.Label>
@@ -109,7 +125,7 @@ return (
                         type='text'
                         placeholder={characters.surname}
                         onChange={e => setSurname(e.target.value)}
-                        required/>
+                        />
                 </Form.Group>
                 <Form.Group className='mb-4' controlId='gender'>
                     <Form.Label>Gender:</Form.Label>
@@ -117,7 +133,7 @@ return (
                         type='text'
                         placeholder={characters.gender}
                         onChange={e => setGender(e.target.value)}
-                        required/> 
+                        /> 
                         
                 </Form.Group>
                 <Form.Group className='mb-4' controlId='age'>
@@ -127,7 +143,7 @@ return (
                         step='1'
                         placeholder={characters.age}
                         onChange={e => setAge(e.target.value)}
-                        required/>
+                        />
                 </Form.Group>
                 <Form.Group className='mb-4' controlId='deaths'>
                     <Form.Label>Deaths:</Form.Label>
@@ -136,7 +152,7 @@ return (
                         step='1'
                         placeholder={characters.deaths}
                         onChange={e => setDeaths(e.target.value)}
-                        required/>
+                        />
                 </Form.Group>
                 <Form.Group className='mb-4' controlId='character_type'>
                     <Form.Label>Character type:</Form.Label>
@@ -145,8 +161,8 @@ return (
                         placeholder='Enter type'
                         onChange={e => setCharacter_Type(e.target.value)}
                         required/> */}
-                        <Form.Select aria-label="Default select example" onChange={e => setCharacter_Type(e.target.value)}
-                        required>
+                        <Form.Select aria-label="Default select example" placeholder={characters.character_type} onChange={e => setCharacter_Type(e.target.value)}
+                        >
                             <option>Choose type of character</option>
                             <option value="demon">Demon</option>
                             <option value="giant">Giant</option>
@@ -165,7 +181,7 @@ return (
                         type='text'
                         placeholder={characters.auth_notes}
                         onChange={e => setAuth_Notes(e.target.value)}
-                        required/>
+                        />
                 </Form.Group>
                 <Form.Group className='mb-4' controlId='comments'>
                     <Form.Label>Comments:</Form.Label>
@@ -173,7 +189,7 @@ return (
                         type='text'
                         placeholder={characters.comments}
                         onChange={e => setComments(e.target.value)}
-                        required/>
+                        />
                 </Form.Group>
                 <Button variant='primary' type='submit'>
                     Update Character

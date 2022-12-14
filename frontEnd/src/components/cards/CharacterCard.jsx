@@ -22,6 +22,8 @@ function CharacterCard(props) {
                 <Card.Text>demon type: {props.demon_type}</Card.Text>
                 <Card.Text>Author notes: {props.auth_notes}</Card.Text>
                 <Card.Text>Comments: {props.comments}</Card.Text>
+                <Card.Link href={"update/" + props.id}>Edit</Card.Link>
+                <Card.Link>Delete</Card.Link>
             </Card.Body>
         </Card>
     )

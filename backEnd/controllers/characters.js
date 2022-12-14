@@ -131,31 +131,85 @@ deleting = async (req, res) =>{
     }
 }
 
-update = async (req, res) =>{
-    const id =req.body.id;
+// update = async (req, res) =>{
+//     const id =req.body.id;
+//     console.log(req.body)
 
-    const character = {
-        first_name: req.body.first_name,
-        surname: req.body.surname,
-        gender: req.body.gender,
-        age: req.body.age,
-        deaths: req.body.deaths,
-        character_type: req.body.character_type,
-        link_id: req.body.link_id,
-        auth_notes: req.body.auth_notes,
-        comments: req.body.comments
-    };
+//     const character = {
+//         first_name: req.body.first_name,
+//         surname: req.body.surname,
+//         gender: req.body.gender,
+//         age: req.body.age,
+//         deaths: req.body.deaths,
+//         character_type: req.body.character_type,
+//         link_id: req.body.link_id,
+//         auth_notes: req.body.auth_notes,
+//         comments: req.body.comments
+//     };
 
-    try{
-        if (id==null || character.first_name==null || character.gender==null || character.age==null || character.deaths==null ||character.link_id==null){
-            throw new Error("Essential fields missing");
+//     try{
+//         if (id==null || character.first_name==null || character.gender==null || character.age==null || character.deaths==null){
+//             throw new Error("Essential fields missing");
+//         }
+
+//         await Character.update(character, {where: {id: id}});
+        
+//         res.status(200).json(character);
+//     }
+//     catch (error){
+//         utilities.formatErrorResponse(res, 400, error.message);
+//     }
+// }
+
+update = async (req, res) => {
+    try {
+        const id = ('id' in req.body) ? req.body.id : null;
+
+        if (id == null) {
+            throw new Error("No character id was provided");
         }
 
-        await Character.update(character, {where: {id: id}});
-        
+        const prev = await Character.findOne({
+            where: {
+                id: id
+            }
+        });
+
+        if (prev === null || prev.length == 0) {
+            throw new Error("Record could not be updated: invalid ID provided");
+        }
+
+        const character = {
+            // name: ('name' in req.body) ? req.body.name : prev.name,
+            // release_date: ('release_date' in req.body) ? req.body.release_date : prev.release_date,
+            // Info: ('info' in req.body) ? req.body.info : prev.Info,
+            // esrb_rating: ('esrb' in req.body) ? req.body.esrb : prev.esrb_rating
+            first_name: ('first_name' in req.body) ? req.body.first_name : prev.first_name,
+            surname: ('surname' in req.body) ? req.body.surname : prev.surname,
+            gender: ('gender' in req.body) ? req.body.gender : prev.gender,
+            age: ('age' in req.body) ? req.body.age : prev.age,
+            deaths: ('deaths' in req.body) ? req.body.deaths : prev.deaths,
+            character_type: ('character_type' in req.body) ? req.body.character_type : prev.character_type,
+            link_id: ('link_id' in req.body) ? req.body.link_id : prev.link_id,
+            auth_notes: ('auth_notes' in req.body) ? req.body.auth_notes : prev.auth_notes,
+            comments: ('comments' in req.body) ? req.body.comments : prev.comments
+            
+        };
+
+        if (id==null || character.first_name==null || character.gender==null || character.age==null || character.deaths==null){
+            
+            throw new Error("Essential fields missing");
+            
+        }
+
+        // if (character.cover_art != prev.cover_art) {
+        //     await deleteOldGameImage(id);
+        // }
+
+        await Character.update(character, { where: { id: id } });
+
         res.status(200).json(character);
-    }
-    catch (error){
+    } catch (error) {
         utilities.formatErrorResponse(res, 400, error.message);
     }
 }
