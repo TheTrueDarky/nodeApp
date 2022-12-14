@@ -75,7 +75,8 @@ getById = async (req, res) =>{
     const id =req.params.id;
     try {
             const character = await Character.findByPk(id,
-                {include: [{model: ToolCategory, required: true}]});
+                //{include: [{model: Link, required: true}]}
+                );
 
             if(character==null || character.length==0){
                 throw new Error("Unable to find Character with id " + id);

@@ -6,7 +6,7 @@ const demonsRouter = require('./routes/demon')
 const giantsRouter = require('./routes/giants')
 const godsRouter = require('./routes/gods')
 const monstersRouter = require('./routes/monsters')
-const mortalsRouter = require('./routes/mortals')//primordials
+const mortalsRouter = require('./routes/mortals')
 const primordialsRouter = require('./routes/primordials')
 
 const cors = require('cors');

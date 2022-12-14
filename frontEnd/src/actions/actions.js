@@ -9,6 +9,14 @@ const  getCharacter = async () => {
     return response;
 };
 
+const  getCharacterOne = async (id) => {
+    let response = await axios.get (url + "characters/" + id).then(response => {
+        return response.data;
+    });
+
+    return response;
+};
+
 const  getDemon = async () => {
     let response = await axios.get (url + "demon").then(response => {
         return response.data;
@@ -58,13 +66,13 @@ const  getPrimordials = async () => {
 };
 
 const addCharacter = async (character) => {
-    let response = await axios.post(url + "characters", character 
-    //{
-    //     headers: {
-    //         'Content-Type':'multipart/form-data'
-    //     }
+    let response = await axios.post(url + "characters", character, 
+    {
+        headers: {
+            'Content-Type':'multipart/form-data'
+        }
         
-    //}
+    }
     ).then(response => {
         return response.data;
     });
@@ -72,4 +80,19 @@ const addCharacter = async (character) => {
     return response;
 }
 
-export {getCharacter, addCharacter, getDemon, getGiants, getGods, getMonsters, getMortals, getPrimordials};
+const updateCharacter = async (character, id) => {
+    let response = await axios.put(url + "characters/" + id, character, 
+    {
+        headers: {
+            'Content-Type':'multipart/form-data'
+        }
+        
+    }
+    ).then(response => {
+        return response.data;
+    });
+
+    return response;
+}
+
+export {getCharacter, getCharacterOne, addCharacter, updateCharacter, getDemon, getGiants, getGods, getMonsters, getMortals, getPrimordials};
