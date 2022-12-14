@@ -1,4 +1,4 @@
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import './CharacterCard.css';
 
 function CharacterCard(props) {
@@ -23,7 +23,7 @@ function CharacterCard(props) {
                 <Card.Text>Author notes: {props.auth_notes}</Card.Text>
                 <Card.Text>Comments: {props.comments}</Card.Text>
                 <Card.Link href={"update/" + props.id}>Edit</Card.Link>
-                <Card.Link>Delete</Card.Link>
+                <Button /*onClick={handleDelete}*/>Delete</Button>
             </Card.Body>
         </Card>
     )

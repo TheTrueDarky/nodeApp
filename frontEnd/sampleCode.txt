@@ -1,0 +1,31 @@
+import React from 'react';
+import axios from 'axios';
+import { Card, Button } from 'react-bootstrap';
+
+function MyCard({ id, title, content }) {
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/api/cards/${id}`);
+      // Handle success
+    } catch (error) {
+      // Handle error
+    }
+  };
+
+  return (
+    <Card>
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{content}</Card.Text>
+        <Button onClick={handleDelete}>Delete</Button>
+      </Card.Body>
+    </Card>
+  );
+}
+In this example, the handleDelete function is called when the delete button is clicked. It makes a DELETE request to the /api/cards/:id endpoint, where :id is the ID of the card being deleted. You will need to replace this URL with the appropriate URL for your application.
+
+Note that this example uses the axios library to make the HTTP request. You can use any HTTP client library you prefer, or use the fetch API directly.
+
+
+
+
