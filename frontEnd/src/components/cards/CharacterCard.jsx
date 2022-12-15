@@ -25,6 +25,9 @@ function CharacterCard(props) {
     useEffect(()=>{
         if(cId !== 0){
             delChar(cId);
+
+            // Reload the page after the delete operation is performed
+            window.location.reload();
         }
     }, [cId])
 
