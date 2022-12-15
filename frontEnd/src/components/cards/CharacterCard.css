@@ -3,6 +3,10 @@
     margin: 1rem;
     text-align: left;
     font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 @media (min-width: 576px){
     .card {
@@ -11,8 +15,11 @@
 }
 
 .CharacterCard {
-    /* add your styles here */
-  }
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }  
   
 .CharacterCard .Card {
     /* add your styles here */
