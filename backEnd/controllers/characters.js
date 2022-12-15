@@ -127,7 +127,7 @@ deleting = async (req, res) =>{
         res.status(200).send("Character deleted");
     }
     catch(error){
-        utilities.formatErrorResponseq(res,404,error.message);
+        utilities.formatErrorResponse(res,404,error.message);
     }
 }
 

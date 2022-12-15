@@ -92,4 +92,12 @@ const updateCharacter = async (character) => {
     return response;
 }
 
-export { getCharacter, getCharacterOne, addCharacter, updateCharacter, getDemon, getGiants, getGods, getMonsters, getMortals, getPrimordials };
+const deleteChar = async(id) => {
+    let response = await axios.delete(url + "characters", {data: {id : id}}).then(response =>{
+        return response.data;
+    });
+
+    return response;
+}
+
+export { deleteChar, getCharacter, getCharacterOne, addCharacter, updateCharacter, getDemon, getGiants, getGods, getMonsters, getMortals, getPrimordials };

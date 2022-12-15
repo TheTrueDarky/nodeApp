@@ -50,12 +50,12 @@ CREATE TABLE IF NOT EXISTS `characters` (
 --
 
 INSERT INTO `characters` (`id`, `first_name`, `surname`, `gender`, `age`, `deaths`, `character_type`, `link_id`, `auth_notes`, `comments`) VALUES
-(1, 'Adreanna', 'Black', 'Female', 22000, 2, 'Goddess', 1, NULL, NULL),
-(4, 'Demon', 'Kuro', 'Male', 20000, 0, 'Demon', 2, NULL, NULL),
-(10, 'Turitan', NULL, 'Male', 100000, 1, 'Giant', 3, NULL, NULL),
-(11, 'Hachishaku-sama', NULL, 'Female', 100000, 0, 'Monster', 4, NULL, NULL),
-(12, 'Spencer', NULL, 'Male', 30, 32, 'Mortal', 5, NULL, NULL),
-(18, 'Isla', 'Kuro', 'Female', 900000, 2, 'Primordial', 6, NULL, NULL);
+(null, 'Adreanna', 'Black', 'Female', 22000, 2, 'Goddess', 1, NULL, NULL),
+(null, 'Demon', 'Kuro', 'Male', 20000, 0, 'Demon', 2, NULL, NULL),
+(null, 'Turitan', NULL, 'Male', 100000, 1, 'Giant', 3, NULL, NULL),
+(null, 'Hachishaku-sama', NULL, 'Female', 100000, 0, 'Monster', 4, NULL, NULL),
+(null, 'Spencer', NULL, 'Male', 30, 32, 'Mortal', 5, NULL, NULL),
+(null, 'Isla', 'Kuro', 'Female', 900000, 2, 'Primordial', 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
