@@ -66,13 +66,7 @@ const getPrimordials = async () => {
 };
 
 const addCharacter = async (character) => {
-    let response = await axios.post(url + "characters", character,
-        {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-
-        }
+    let response = await axios.post(url + "characters", character
     ).then(response => {
         return response.data;
     });

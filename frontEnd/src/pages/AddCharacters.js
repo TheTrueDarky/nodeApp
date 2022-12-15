@@ -38,7 +38,9 @@ function AddCharacters() {
         setSuccess(false);
         setError('');
 
-        if (first_name && surname && gender && age && deaths && character_type && auth_notes && comments) {
+        if (first_name && surname && gender && age && deaths && character_type) {
+            let nullFields = 0;
+
             let character = {
                 first_name: first_name,
                 surname: surname,
@@ -50,7 +52,10 @@ function AddCharacters() {
                 comments: comments
             };
             
-            submitData(character);
+
+            if(nullFields == 0){
+                submitData(character);
+            }
         }
 
         else {
@@ -144,7 +149,7 @@ function AddCharacters() {
                             type='text'
                             placeholder='Enter author notes'
                             onChange={e => setAuth_Notes(e.target.value)}
-                            required/>
+                            />
                     </Form.Group>
                     <Form.Group className='mb-4' controlId='comments'>
                         <Form.Label>Comments:</Form.Label>
@@ -152,7 +157,7 @@ function AddCharacters() {
                             type='text'
                             placeholder='Enter comments'
                             onChange={e => setComments(e.target.value)}
-                            required/>
+                            />
                     </Form.Group>
                     <Button variant='primary' type='submit'>
                         Add Character
