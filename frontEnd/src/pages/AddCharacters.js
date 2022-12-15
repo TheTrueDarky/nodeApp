@@ -38,7 +38,7 @@ function AddCharacters() {
         setSuccess(false);
         setError('');
 
-        if (first_name && surname && gender && age && deaths && character_type) {
+        if (first_name && gender && age && deaths && character_type) {
             let nullFields = 0;
 
             let character = {
@@ -93,7 +93,7 @@ function AddCharacters() {
                             type='text'
                             placeholder='Enter Surname'
                             onChange={e => setSurname(e.target.value)}
-                            required/>
+                            />
                     </Form.Group>
                     <Form.Group className='mb-4' controlId='gender'>
                         <Form.Label>Gender:</Form.Label>

@@ -1,0 +1,35 @@
+.view-characters {
+  /* add your styles here */
+}
+
+.view-characters h1 {
+  /* add your styles here */
+  color: red;
+  text-align: center;
+  padding: 20px;
+  white-space: nowrap;
+}
+
+.view-characters .CardGroup {
+  /* add your styles here */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.view-characters .Card {
+  overflow: hidden;
+}
+
+.view-characters .Alert {
+  /* add your styles here */
+  background-color: red;
+  padding: 20px;
+}
+
+.view-characters .Alert .Heading {
+  white-space: nowrap;
+}
