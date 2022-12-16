@@ -21,7 +21,27 @@
   
   .update-characters form .form-group {
     width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
+  
+  .update-characters form .form-group label {
+    width: 25%;
+    font-size: 1em;
+    color: #333;
+    margin-right: 20px;
+  }
+  
+  .update-characters form .form-group .form-control {
+    width: 75%;
+    height: 45px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 20px;
+  }
+  
   
   .update-characters form .form-control {
     height: 45px;
