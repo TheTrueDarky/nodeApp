@@ -132,13 +132,13 @@ function AddCharacters() {
                             <Form.Select aria-label="Default select example" onChange={e => setCharacter_Type(e.target.value)}
                             required>
                                 <option>Choose type of character</option>
-                                <option value="demon">Demon</option>
-                                <option value="giant">Giant</option>
-                                <option value="god">God</option>
-                                <option value="goddess">Goddess</option>
-                                <option value="monster">Monster</option>
-                                <option value="mortal">Mortal</option>
-                                <option value="primordial">Primordial</option>
+                                <option value="Demon">Demon</option>
+                                <option value="Giant">Giant</option>
+                                <option value="God">God</option>
+                                <option value="Goddess">Goddess</option>
+                                <option value="Monster">Monster</option>
+                                <option value="Mortal">Mortal</option>
+                                <option value="Primordial">Primordial</option>
                             </Form.Select>
                             
                            
