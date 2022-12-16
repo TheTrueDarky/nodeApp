@@ -37,9 +37,9 @@ function ViewCharacters() {
                 <Container>
                     <h1>View Characters</h1>
                     <div className="search-box character-type-filter gender-filter">
-                        <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                        <input type="text" placeholder={"Search"} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
                         <Form.Control as="select" value={characterType} onChange={(e) => setCharacterType(e.target.value)}>
-                            <option value="">All</option>
+                            <option value="">All Types</option>
                             <option value="Demon">Demon</option>
                             <option value="Giant">Giant</option>
                             <option value="God">God</option>
@@ -49,7 +49,7 @@ function ViewCharacters() {
                             <option value="Primordial">Primordial</option>
                         </Form.Control>
                         <Form.Control as="select" value={gender} onChange={(e) => setGender(e.target.value)}>
-                            <option value="">All</option>
+                            <option value="">All Genders</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
