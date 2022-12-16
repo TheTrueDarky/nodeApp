@@ -1,4 +1,87 @@
-form {
+/* form {
     text-align: left;
     padding: 2rem;
-}
+} */
+
+.update-characters {
+    margin: 20px;
+  }
+  
+  .update-characters h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .update-characters form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .update-characters form .form-group {
+    width: 50%;
+  }
+  
+  .update-characters form .form-control {
+    height: 45px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 20px;
+  }
+  
+  .update-characters form .form-control:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #007bff;
+  }
+  
+  .update-characters form .form-check {
+    margin-top: 20px;
+  }
+  
+  .update-characters form .form-check label {
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  .update-characters form .form-check .form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  .update-characters form .form-check .form-check-input:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .update-characters form .btn {
+    width: 50%;
+    height: 45px;
+    font-size: 1em;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .update-characters form .btn:hover {
+    background-color: #0069d9;
+  }
+  
+  .update-characters form .btn:active {
+    background-color: #0062cc;
+  }
+  
+  .update-characters form .btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .update-characters .alert {
+    width: 50%;
+    margin-top: 20px;
+  }
+  
