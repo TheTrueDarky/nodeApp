@@ -10,7 +10,7 @@ function ViewCharacters() {
     const [error, setError] = useState([null]);
     const [searchQuery, setSearchQuery] = useState('');
     const [characterType, setCharacterType] = useState(''); // added state for character type
-
+    const [gender, setGender] = useState(''); // added state for gender filter
     useEffect(() => {
         if (characters.length <= 0) {
             const fetchData = async () => {
@@ -28,14 +28,15 @@ function ViewCharacters() {
     }, [characters])
     const filteredCharacters = characters
         .filter(character => character.first_name.toLowerCase().includes(searchQuery.toLowerCase()))
-        .filter(character => characterType === '' || character.character_type === characterType); // added character type filter
+        .filter(character => characterType === '' || character.character_type === characterType) // added character type filter
+        .filter(character => gender === '' || character.gender === gender); // added gender filter
 
     if (characters.length > 0) {
         return (
             <div className='view-characters'>
                 <Container>
                     <h1>View Characters</h1>
-                    <div className="search-box character-type-filter">
+                    <div className="search-box character-type-filter gender-filter">
                         <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
                         <Form.Control as="select" value={characterType} onChange={(e) => setCharacterType(e.target.value)}>
                             <option value="">All</option>
@@ -46,7 +47,12 @@ function ViewCharacters() {
                             <option value="Monster">Monster</option>
                             <option value="Mortal">Mortal</option>
                             <option value="Primordial">Primordial</option>
-                            
+                        </Form.Control>
+                        <Form.Control as="select" value={gender} onChange={(e) => setGender(e.target.value)}>
+                            <option value="">All</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
                         </Form.Control>
                     </div>
 
@@ -63,7 +69,6 @@ function ViewCharacters() {
                                     deaths={character.deaths}
                                     character_type={character.character_type}
                                     link_id={character.link_id}
-
                                     demon_type={"TESTING"}
                                     auth_notes={character.auth_notes}
                                     comments={character.comments}
@@ -89,6 +94,16 @@ function ViewCharacters() {
             </div>
         );
     }
+    return (
+        <div className='view-characters'>
+            <Container>
+                <h1>View Characters</h1>
+                <Alert variant='info'>
+                    <Alert.Heading>Loading...</Alert.Heading>
+                </Alert>
+            </Container>
+        </div>
+    );
 }
 
 export default ViewCharacters;

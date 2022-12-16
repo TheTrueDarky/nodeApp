@@ -6,7 +6,8 @@
   }
   
   .search-box input,
-  .character-type-filter select {
+  .character-type-filter select,
+  .gender-filter select {
     width: 45%;
     height: 40px;
     font-size: 16px;
@@ -23,6 +24,17 @@
   }
   
   .character-type-filter select {
+    margin-left: 10px;
+  }
+
+  .gender-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .gender-filter select {
     margin-left: 10px;
   }
   
