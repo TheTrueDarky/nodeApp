@@ -33,7 +33,7 @@ function CharacterCard(props) {
 
     console.log(props);
     return (
-        <Card style={{overflow: "hidden", maxHeight: "600px"}} key={props.id} >
+        <Card style={{overflow: "hidden", maxHeight: "600px", border: "1px solid black", borderStyle: "double"}} key={props.id} >
             <Card.Body>
                 <Card.Title>{props.first_name}</Card.Title>
                 <Card.Text>Surname: {props.surname}</Card.Text>

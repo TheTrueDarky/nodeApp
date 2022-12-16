@@ -22,14 +22,15 @@
   }  
   
 .CharacterCard .Card {
-    /* add your styles here */
-    margin: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border-radius: 5px;
-    width: 300px;
-    max-width: 100%;
-  }
+  /* add your styles here */
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  width: 300px;
+  max-width: 100%;
+  border: 2px solid black; /* added black border */
+}
   
   
   .CharacterCard .Card:hover {
