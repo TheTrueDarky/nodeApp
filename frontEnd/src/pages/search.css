@@ -5,12 +5,24 @@
     margin-bottom: 20px;
   }
   
-  .search-box input {
-    width: 300px;
+  .search-box input,
+  .character-type-filter select {
+    width: 45%;
     height: 40px;
     font-size: 16px;
     padding: 0 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+  }
+  
+  .character-type-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .character-type-filter select {
+    margin-left: 10px;
   }
   

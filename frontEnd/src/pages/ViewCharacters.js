@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Alert } from 'react-bootstrap';
+import { Container, Alert, Form } from 'react-bootstrap';
 import './ViewCharacters.css';
 import './search.css';
 import { getCharacter } from '../actions/actions';
@@ -9,6 +9,7 @@ function ViewCharacters() {
     const [characters, setCharacters] = useState([]);
     const [error, setError] = useState([null]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [characterType, setCharacterType] = useState(''); // added state for character type
 
     useEffect(() => {
         if (characters.length <= 0) {
@@ -25,16 +26,30 @@ function ViewCharacters() {
             fetchData();
         }
     }, [characters])
-    const filteredCharacters = characters.filter(character => character.first_name.toLowerCase().includes(searchQuery.toLowerCase()));
+    const filteredCharacters = characters
+        .filter(character => character.first_name.toLowerCase().includes(searchQuery.toLowerCase()))
+        .filter(character => characterType === '' || character.character_type === characterType); // added character type filter
 
     if (characters.length > 0) {
         return (
             <div className='view-characters'>
                 <Container>
                     <h1>View Characters</h1>
-                    <div className="search-box">
+                    <div className="search-box character-type-filter">
                         <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                        <Form.Control as="select" value={characterType} onChange={(e) => setCharacterType(e.target.value)}>
+                            <option value="">All</option>
+                            <option value="Demon">Demon</option>
+                            <option value="Giant">Giant</option>
+                            <option value="God">God</option>
+                            <option value="Goddess">Goddess</option>
+                            <option value="Monster">Monster</option>
+                            <option value="Mortal">Mortal</option>
+                            <option value="Primordial">Primordial</option>
+                            
+                        </Form.Control>
                     </div>
+
                     <div className="character-card-grid">
                         {
                             filteredCharacters.map((character) => {
@@ -68,7 +83,7 @@ function ViewCharacters() {
                     <h1>View Characters</h1>
                     <Alert variant='danger'>
                         <Alert.Heading> An error has Occured </Alert.Heading>
-                        <p>{(error !== null) ? error : "you currently hae no characters avaliable in your service."}  </p>
+                        <p>{(error !== null) ? error : "you currently have no characters available in your service."}  </p>
                     </Alert>
                 </Container>
             </div>
