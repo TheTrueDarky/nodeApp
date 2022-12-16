@@ -14,3 +14,14 @@
     justify-content: center;
 
 }
+
+.character-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+}
+
+/* Adjust the size of the CharacterCard component as needed */
+.character-card-grid .character-card {
+    width: 200px;
+}

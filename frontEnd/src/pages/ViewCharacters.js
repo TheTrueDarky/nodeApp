@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Container, Alert, CardGroup } from 'react-bootstrap';
+import { Container, Alert } from 'react-bootstrap';
 import './ViewCharacters.css';
 import { getCharacter } from '../actions/actions';
 import CharacterCard from '../components/cards/CharacterCard';
 
-
 function ViewCharacters() {
     const [characters, setCharacters] = useState([]);
     const [error, setError] = useState([null]);
-    
+
     useEffect(() => {
         if (characters.length <= 0){
             const fetchData = async () => {
@@ -30,7 +29,7 @@ function ViewCharacters() {
             <div className='view-characters'>
                 <Container>
                     <h1>View Characters</h1>
-                    <CardGroup>
+                    <div className="character-card-grid">
                         {
                             characters.map((character) => {
                                 return <CharacterCard 
@@ -48,13 +47,10 @@ function ViewCharacters() {
                                 auth_notes={character.auth_notes}
                                 comments={character.comments}
                                 
-
-
                                 />
-
                             })
                         }
-                    </CardGroup>
+                    </div>
                 </Container>
             </div>
         );
