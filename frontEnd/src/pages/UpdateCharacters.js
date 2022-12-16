@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
 import './UpdateCharacters.css';
-import { updateCharacter } from '../actions/actions';
+import {updateCharacter} from '../actions/actions';
 import { useEffect, useState } from 'react';
 import { Form, Container, Button, Alert } from 'react-bootstrap';
-import { getCharacterOne as getCharacter } from '../actions/actions';
+import { getCharacterOne as getCharacter} from '../actions/actions';
 import CharacterCard from '../components/cards/CharacterCard';
 
-function UpdateCharacters() {
+function UpdateCharacters(){
     const [first_name, setFirst_Name] = useState('');
     const [surname, setSurname] = useState('');
     const [gender, setGender] = useState('');
@@ -21,14 +21,14 @@ function UpdateCharacters() {
     const { id } = useParams();
     const [characters, setCharacters] = useState([]);
     const [char, setChar] = useState([]);
-
+    
     useEffect(() => {
-        if (characters.length <= 0) {
+        if (characters.length <= 0){
             const fetchData = async () => {
                 try {
                     let data = await getCharacter(id);
                     setCharacters(data);
-                    //Test Load
+                   //Test Load
                     console.log(data)
                 }
                 catch (e) {
@@ -41,112 +41,167 @@ function UpdateCharacters() {
         }
     }, [characters])
     //logs the character
-    //console.log(characters);
+//console.log(characters);
 
 
-    const submitData = async (c) => {
-        try {
-            console.log(c)
-            let response = await updateCharacter(c);
+const submitData = async (c) => {
+    try {
+        console.log(c)
+        let response = await updateCharacter(c);
 
-            if (response) {
-                setSuccess(true);
-                //   console.log(setSuccess);
-            }
-        }
-        catch (e) {
-            setError(e.message);
+        if (response) {
+            setSuccess(true);
+         //   console.log(setSuccess);
         }
     }
+    catch (e) {
+        setError(e.message);
+    }
+}
 
-    const submitCharacter = (e) => {
-        e.preventDefault();
+const submitCharacter = (e) => {
+    e.preventDefault();
 
-        setSuccess(false);
-        setError('');
-        console.log(first_name);
-        if (first_name != null || surname || gender || age || deaths || character_type || auth_notes || comments) {
+    setSuccess(false);
+    setError('');
+    console.log(first_name);
+    if (first_name != null|| surname || gender || age || deaths || character_type || auth_notes || comments) {
+        
+        const charr = ({
+            id: id,
+            first_name: (first_name == "") ? null : first_name,
+            surname: (surname == "") ? null : surname,
+            gender: (gender == "") ? null : gender,
+            age: (age == 0) ? null : age,
+            deaths: (deaths == 0) ? null : deaths,
+            character_type: (character_type == "") ? null : character_type,
+            auth_notes: null,
+            comments: null
+        });
 
-            const charr = ({
-                id: id,
-                first_name: (first_name == "") ? null : first_name,
-                surname: (surname == "") ? null : surname,
-                gender: (gender == "") ? null : gender,
-                age: (age == 0) ? null : age,
-                deaths: (deaths == 0) ? null : deaths,
-                character_type: (character_type == "") ? null : character_type,
-                auth_notes: null,
-                comments: null
-            });
-            for (const [key, value] of Object.entries(charr)) {
-                if (value == null) {
-                    delete charr[key]
-                }
+        for (const [key, value] of Object.entries(charr)) {
+            if (value == null) {
+                delete charr[key]
             }
-
-            console.log(charr);
-
-            submitData(charr);
         }
+        
+        console.log(charr);
+        
+        submitData(charr);
+    }
 
-        else {
-            setError('A field must contain a value');
-        }
+    else {
+        setError('A field must contain a value');
+    }
 
+    <Container>
+        <Alert show={success} variant="success">
+            <Alert.Heading>Success!</Alert.Heading>
+            <p>You have successfully updated a character to the service!</p>
+        </Alert>
+        <Alert show={(error !== '') ? false : true} variant="danger">
+            <Alert.Heading>An Error has Occured!</Alert.Heading>
+            <p>{error}</p>
+        </Alert>
+    </Container> 
+
+}
+return (
+    <div className='update-characters'>
+        <h1>Update Character</h1>
         <Container>
-            <Alert show={success} variant="success">
-                <Alert.Heading>Success!</Alert.Heading>
-                <p>You have successfully updated a character to the service!</p>
-            </Alert>
-            <Alert show={(error !== '') ? false : true} variant="danger">
-                <Alert.Heading>An Error has Occured!</Alert.Heading>
-                <p>{error}</p>
-            </Alert>
+            <Form onSubmit={submitCharacter}>
+                <Form.Group className='form-group' controlId='first_name'>
+                    <label>First name:</label>
+                    <Form.Control 
+                        type='text'
+                        placeholder={characters.first_name}
+                        onChange={e => setFirst_Name(e.target.value)}
+                        />
+                </Form.Group>
+                <Form.Group className='form-group' controlId='surname'>
+                    <label>Surname:</label>
+                    <Form.Control 
+                        type='text'
+                        placeholder={characters.surname}
+                        onChange={e => setSurname(e.target.value)}
+                        />
+                </Form.Group>
+                <Form.Group className='form-group' controlId='gender'>
+                    <label>Gender:</label>
+                    <Form.Control 
+                        type='text'
+                        placeholder={characters.gender}
+                        onChange={e => setGender(e.target.value)}
+                        /> 
+                        
+                </Form.Group>
+                <Form.Group className='form-group' controlId='age'>
+                    <label>Age:</label>
+                    <Form.Control 
+                        type='number'
+                        step='1'
+                        placeholder={characters.age}
+                        onChange={e => setAge(e.target.value)}
+                        />
+                </Form.Group>
+                <Form.Group className='form-group' controlId='deaths'>
+                    <label>Deaths:</label>
+                    <Form.Control 
+                        type='number'
+                        step='1'
+                        placeholder={characters.deaths}
+                        onChange={e => setDeaths(e.target.value)}
+                        />
+                </Form.Group>
+                <Form.Group className='form-group' controlId='character_type'>
+                    <label>Character type:</label>
+                    {/* <Form.Control 
+                        type='text'
+                        placeholder='Enter type'
+                        onChange={e => setCharacter_Type(e.target.value)}
+                        required/> */}
+                        <Form.Select aria-label="Default select example" placeholder={characters.character_type} onChange={e => setCharacter_Type(e.target.value)}
+                        >
+                            <option>Choose type of character</option>
+                            <option value="demon">Demon</option>
+                            <option value="giant">Giant</option>
+                            <option value="god">God</option>
+                            <option value="goddess">Goddess</option>
+                            <option value="monster">Monster</option>
+                            <option value="mortal">Mortal</option>
+                            <option value="primordial">Primordial</option>
+                        </Form.Select>
+                        
+                       
+                </Form.Group>
+                <Form.Group className='form-group' controlId='auth_notes'>
+                    <label>Author notes:</label>
+                    <Form.Control 
+                        type='text'
+                        placeholder={characters.auth_notes}
+                        onChange={e => setAuth_Notes(e.target.value)}
+                        />
+                </Form.Group>
+                <Form.Group className='form-group' controlId='comments'>
+                    <label>Comments:</label>
+                    <Form.Control 
+                        type='text'
+                        placeholder={characters.comments}
+                        onChange={e => setComments(e.target.value)}
+                        />
+                </Form.Group>
+                <Button variant='primary' type='submit'>
+                    Update Character
+                </Button>
+            </Form>
         </Container>
-    }
-    return (
-        <div className='update-characters'>
-            <h1>Update Character</h1>
-            <Container>
-                <Form onSubmit={submitCharacter}>
-                    <Form.Group className='form-group'>
-                        <label>First Name:</label>
-                        <Form.Control type='text' value={first_name} onChange={(e) => setFirst_Name(e.target.value)} />
-                    </Form.Group>
-                    <Form.Group className='form-group'>
-                        <label>Surname:</label>
-                        <Form.Control type='text' value={surname} onChange={(e) => setSurname(e.target.value)} />
-                    </Form.Group>
-                    <Form.Group className='form-group'>
-                        <label>Gender:</label>
-                        <Form.Control type='text' value={gender} onChange={(e) => setGender(e.target.value)} />
-                    </Form.Group>
-                    <Form.Group className='form-group'>
-                        <label>Age:</label>
-                        <Form.Control type='number' value={age} onChange={(e) => setAge(e.target.value)} />
-                    </Form.Group>
-                    <Form.Group className='form-group'>
-                        <label>Deaths:</label>
-                        <Form.Control type='number' value={deaths} onChange={(e) => setDeaths(e.target.value)} />
-                    </Form.Group>
-                    <Form.Group className='form-group'>
-                        <label>Character Type:</label>
-                        <Form.Control type='text' value={character_type} onChange={(e) => setCharacter_Type(e.target.value)} />
-                    </Form.Group>
-                    <Form.Group className='form-group'>
-                        <label>Author Notes:</label>
-                        <Form.Control type='text' value={auth_notes} onChange={(e) => setAuth_Notes(e.target.value)} />
-                    </Form.Group>
-                    <Form.Group className='form-group'>
-                        <label>Comments:</label>
-                        <Form.Control type='text' value={comments} onChange={(e) => setComments(e.target.value)} />
-                    </Form.Group>
-                    <Button type='submit' variant='primary'>Submit</Button>
-                </Form>
-            </Container>
-        </div>
-    )
+    </div>
+);
 }
 
 export default UpdateCharacters;
 
+
+//change label to label
+// and className='form-group'

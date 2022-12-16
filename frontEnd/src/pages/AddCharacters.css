@@ -1,4 +1,106 @@
-form {
+/* form {
     text-align: left;
     padding: 2rem;
-}
+} */
+
+.add-characters {
+    margin: 20px;
+  }
+  
+  .add-characters h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .add-characters form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .add-characters form .form-group {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .add-characters form .form-group label {
+    width: 25%;
+    font-size: 1em;
+    color: #333;
+    margin-right: 20px;
+  }
+  
+  .add-characters form .form-group .form-control {
+    width: 75%;
+    height: 45px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 20px;
+  }
+  
+  .add-characters form .form-control {
+    height: 45px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 20px;
+  }
+  
+  .add-characters form .form-control:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #007bff;
+  }
+  
+  .add-characters form .form-check {
+    margin-top: 20px;
+  }
+  
+  .add-characters form .form-check label {
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  .add-characters form .form-check .form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  .add-characters form .form-check .form-check-input:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .add-characters form .btn {
+    width: 50%;
+    height: 45px;
+    font-size: 1em;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .add-characters form .btn:hover {
+    background-color: #0069d9;
+  }
+  
+  .add-characters form .btn:active {
+    background-color: #0062cc;
+  }
+  
+  .add-characters form .btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .add-characters .alert {
+    width: 50%;
+    margin-top: 20px;
+  }
+  

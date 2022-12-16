@@ -201,3 +201,7 @@ return (
 }
 
 export default UpdateCharacters;
+
+
+//change form.label to label
+// and className='form-group'
