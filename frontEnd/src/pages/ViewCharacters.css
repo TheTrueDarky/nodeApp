@@ -15,8 +15,11 @@
 
 } */
 
+
+
 .view-characters {
     text-align: center;
+    
   }
   
   .view-characters h1 {
@@ -52,5 +55,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1em;
   }
+
+  
   
   

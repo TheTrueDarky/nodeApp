@@ -60,7 +60,7 @@ function CharacterCard(props) {
     // there are also two Button components, one for editing and one for deleting the character
     return (
         <>
-            <Card style={{ overflow: "hidden", maxHeight: "600px", border: "1px solid black", borderStyle: "double" }} key={props.id} >
+            <Card style={{ overflow: "hidden", maxHeight: "600px", border: "1px solid black", borderStyle: "double", background: "radial-gradient(circle, #ffffff, #dddddd)", fontFamily: "Arial, sans-serif" }} key={props.id} >
                 <Card.Body>
                     <Card.Title>{props.first_name}</Card.Title>
                     <Card.Text>Surname: {props.surname}</Card.Text>
