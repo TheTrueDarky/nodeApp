@@ -11,6 +11,7 @@ function ViewCharacters() {
     const [searchQuery, setSearchQuery] = useState('');
     const [characterType, setCharacterType] = useState(''); // added state for character type
     const [gender, setGender] = useState(''); // added state for gender filter
+    const [sortOrder, setSortOrder] = useState(''); // added state for sort order
     useEffect(() => {
         if (characters.length <= 0) {
             const fetchData = async () => {
@@ -30,7 +31,26 @@ function ViewCharacters() {
         .filter(character => character.first_name.toLowerCase().includes(searchQuery.toLowerCase()))
         .filter(character => characterType === '' || character.character_type === characterType) // added character type filter
         .filter(character => gender === '' || character.gender === gender); // added gender filter
-
+    filteredCharacters.sort((a, b) => {
+        if (sortOrder === 'asc') {
+            if (a.first_name < b.first_name) {
+                return -1;
+            }
+            if (a.first_name > b.first_name) {
+                return 1;
+            }
+            return 0;
+        } else if (sortOrder === 'desc') {
+            if (a.first_name > b.first_name) {
+                return -1;
+            }
+            if (a.first_name < b.first_name) {
+                return 1;
+            }
+            return 0;
+        }
+        return 0;
+    });
     if (characters.length > 0) {
         return (
             <div className='view-characters'>
@@ -54,8 +74,12 @@ function ViewCharacters() {
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
                         </Form.Control>
+                        <Form.Control as="select" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                            <option value="">No sorting</option>
+                            <option value="asc">Sort by A - Z</option>
+                            <option value="desc">Sort by Z - A</option>
+                        </Form.Control>
                     </div>
-
                     <div className="character-card-grid">
                         {
                             filteredCharacters.map((character) => {
@@ -79,31 +103,18 @@ function ViewCharacters() {
                     </div>
                 </Container>
             </div>
-        );
+        )
     }
-    else if (error || characters.length === 0) {
+    else {
         return (
             <div className='view-characters'>
                 <Container>
                     <h1>View Characters</h1>
-                    <Alert variant='danger'>
-                        <Alert.Heading> An error has Occured </Alert.Heading>
-                        <p>{(error !== null) ? error : "you currently have no characters available in your service."}  </p>
-                    </Alert>
+                    <Alert variant='danger'>{error}</Alert>
                 </Container>
             </div>
-        );
+        )
     }
-    return (
-        <div className='view-characters'>
-            <Container>
-                <h1>View Characters</h1>
-                <Alert variant='info'>
-                    <Alert.Heading>Loading...</Alert.Heading>
-                </Alert>
-            </Container>
-        </div>
-    );
 }
 
 export default ViewCharacters;
