@@ -75,7 +75,7 @@ function ViewCharacters() {
                             <option value="Other">Other</option>
                         </Form.Control>
                         <Form.Control as="select" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-                            <option value="">No sorting</option>
+                            <option value="">No Sorting</option>
                             <option value="asc">Sort by A - Z</option>
                             <option value="desc">Sort by Z - A</option>
                         </Form.Control>
