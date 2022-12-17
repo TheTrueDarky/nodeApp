@@ -139,6 +139,8 @@ function AddCharacters() {
                                 <option value="Monster">Monster</option>
                                 <option value="Mortal">Mortal</option>
                                 <option value="Primordial">Primordial</option>
+                                <option value="Titan">Titan</option>
+                                <option value="Titaness">Titaness</option>
                             </Form.Select>
                             
                            

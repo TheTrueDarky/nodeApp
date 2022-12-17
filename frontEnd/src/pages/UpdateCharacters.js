@@ -171,6 +171,8 @@ return (
                             <option value="monster">Monster</option>
                             <option value="mortal">Mortal</option>
                             <option value="primordial">Primordial</option>
+                            <option value="Titan">Titan</option>
+                            <option value="Titaness">Titaness</option>
                         </Form.Select>
                         
                        

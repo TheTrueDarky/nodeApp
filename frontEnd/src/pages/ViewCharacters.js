@@ -67,6 +67,8 @@ function ViewCharacters() {
                             <option value="Monster">Monster</option>
                             <option value="Mortal">Mortal</option>
                             <option value="Primordial">Primordial</option>
+                            <option value="Titan">Titan</option>
+                            <option value="Titaness">Titaness</option>
                         </Form.Control>
                         <Form.Control as="select" value={gender} onChange={(e) => setGender(e.target.value)}>
                             <option value="">All Genders</option>
