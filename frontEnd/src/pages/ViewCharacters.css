@@ -25,6 +25,9 @@
   .view-characters h1 {
     font-size: 2em;
     margin-bottom: 0.5em;
+    font-family: Arial, sans-serif;
+    
+    
   }
   
   .search-box {
