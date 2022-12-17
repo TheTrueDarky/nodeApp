@@ -52,6 +52,7 @@ const submitData = async (c) => {
         if (response) {
             setSuccess(true);
          //   console.log(setSuccess);
+         
         }
     }
     catch (e) {
@@ -59,7 +60,7 @@ const submitData = async (c) => {
     }
 }
 
-const submitCharacter = (e) => {
+const submitCharacter = async (e) => {
     e.preventDefault();
 
     setSuccess(false);
@@ -87,10 +88,18 @@ const submitCharacter = (e) => {
         
         console.log(charr);
         
-        submitData(charr);
-    }
+        try {
+            console.log(charr) // charr is used here instead of c
+            let response = await updateCharacter(charr); // charr is passed to updateCharacter here
 
-    else {
+            if (response) {
+                setSuccess(true);
+                window.location.assign("/viewchar"); // Redirect to the viewchar page
+            }
+        } catch (e) {
+            setError(e.message);
+        }
+    } else {
         setError('A field must contain a value');
     }
 
@@ -104,8 +113,8 @@ const submitCharacter = (e) => {
             <p>{error}</p>
         </Alert>
     </Container> 
+};
 
-}
 return (
     <div className='update-characters'>
         <h1>Update Character</h1>
