@@ -75,8 +75,8 @@ const submitCharacter = (e) => {
             age: (age == 0) ? null : age,
             deaths: (deaths == 0) ? null : deaths,
             character_type: (character_type == "") ? null : character_type,
-            auth_notes: null,
-            comments: null
+            auth_notes: (auth_notes == "") ? null : auth_notes,
+            comments: (comments == "") ? null : comments
         });
 
         for (const [key, value] of Object.entries(charr)) {
