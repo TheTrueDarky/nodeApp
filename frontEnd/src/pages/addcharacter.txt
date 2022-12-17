@@ -79,24 +79,24 @@ function AddCharacters() {
             <h1>Add Characters</h1>
             <Container>
                 <Form onSubmit={submitCharacter}>
-                    <Form.Group className='mb-4' controlId='first_name'>
-                        <Form.Label>First name:</Form.Label>
+                    <Form.Group className='form-group' controlId='first_name'>
+                        <label>First name:</label>
                         <Form.Control 
                             type='text'
                             placeholder='Enter First Name'
                             onChange={e => setFirst_Name(e.target.value)}
                             required/>
                     </Form.Group>
-                    <Form.Group className='mb-4' controlId='surname'>
-                        <Form.Label>Surname:</Form.Label>
+                    <Form.Group className='form-group' controlId='surname'>
+                        <label>Surname:</label>
                         <Form.Control 
                             type='text'
                             placeholder='Enter Surname'
                             onChange={e => setSurname(e.target.value)}
                             />
                     </Form.Group>
-                    <Form.Group className='mb-4' controlId='gender'>
-                        <Form.Label>Gender:</Form.Label>
+                    <Form.Group className='form-group' controlId='gender'>
+                        <label>Gender:</label>
                         <Form.Control 
                             type='text'
                             placeholder='Enter gender'
@@ -104,8 +104,8 @@ function AddCharacters() {
                             required/> 
                             
                     </Form.Group>
-                    <Form.Group className='mb-4' controlId='age'>
-                        <Form.Label>Age:</Form.Label>
+                    <Form.Group className='form-group' controlId='age'>
+                        <label>Age:</label>
                         <Form.Control 
                             type='number'
                             step='1'
@@ -113,8 +113,8 @@ function AddCharacters() {
                             onChange={e => setAge(e.target.value)}
                             required/>
                     </Form.Group>
-                    <Form.Group className='mb-4' controlId='deaths'>
-                        <Form.Label>Deaths:</Form.Label>
+                    <Form.Group className='form-group' controlId='deaths'>
+                        <label>Deaths:</label>
                         <Form.Control 
                             type='number'
                             step='1'
@@ -122,8 +122,8 @@ function AddCharacters() {
                             onChange={e => setDeaths(e.target.value)}
                             required/>
                     </Form.Group>
-                    <Form.Group className='mb-4' controlId='character_type'>
-                        <Form.Label>Character type:</Form.Label>
+                    <Form.Group className='form-group' controlId='character_type'>
+                        <label>Character type:</label>
                         {/* <Form.Control 
                             type='text'
                             placeholder='Enter type'
@@ -132,27 +132,27 @@ function AddCharacters() {
                             <Form.Select aria-label="Default select example" onChange={e => setCharacter_Type(e.target.value)}
                             required>
                                 <option>Choose type of character</option>
-                                <option value="demon">Demon</option>
-                                <option value="giant">Giant</option>
-                                <option value="god">God</option>
-                                <option value="goddess">Goddess</option>
-                                <option value="monster">Monster</option>
-                                <option value="mortal">Mortal</option>
-                                <option value="primordial">Primordial</option>
+                                <option value="Demon">Demon</option>
+                                <option value="Giant">Giant</option>
+                                <option value="God">God</option>
+                                <option value="Goddess">Goddess</option>
+                                <option value="Monster">Monster</option>
+                                <option value="Mortal">Mortal</option>
+                                <option value="Primordial">Primordial</option>
                             </Form.Select>
                             
                            
                     </Form.Group>
-                    <Form.Group className='mb-4' controlId='auth_notes'>
-                        <Form.Label>Author notes:</Form.Label>
+                    <Form.Group className='form-group' controlId='auth_notes'>
+                        <label>Author notes:</label>
                         <Form.Control 
                             type='text'
                             placeholder='Enter author notes'
                             onChange={e => setAuth_Notes(e.target.value)}
                             />
                     </Form.Group>
-                    <Form.Group className='mb-4' controlId='comments'>
-                        <Form.Label>Comments:</Form.Label>
+                    <Form.Group className='form-group' controlId='comments'>
+                        <label>Comments:</label>
                         <Form.Control 
                             type='text'
                             placeholder='Enter comments'
