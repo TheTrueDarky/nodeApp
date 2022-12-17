@@ -1,1 +1,2 @@
 add a sort by a -z by first_name
+and make each form input a capital on first letter
