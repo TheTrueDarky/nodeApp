@@ -5,12 +5,14 @@
 
 .add-characters {
     margin: 20px;
+    font-family: Arial, sans-serif;
   }
   
   .add-characters h1 {
     font-size: 2em;
     color: #333;
     margin-bottom: 20px;
+    font-family: Arial, sans-serif;
   }
   
   .add-characters form {

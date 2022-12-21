@@ -5,12 +5,14 @@
 
 .update-characters {
     margin: 20px;
+    font-family: Arial, sans-serif;
   }
   
   .update-characters h1 {
     font-size: 2em;
     color: #333;
     margin-bottom: 20px;
+    font-family: Arial, sans-serif;
   }
   
   .update-characters form {
