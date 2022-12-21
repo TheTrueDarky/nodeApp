@@ -31,16 +31,17 @@ function ViewGiants() {
                 <Container>
                     <h1>View Giants</h1>
                     <CardGroup>
-                        {
-                            giant.map((giant) => {
-                                return <GiantCard 
-                                key={giant.id}
-                                role={giant.role}
-                                
-
-                                />
-                            })
-                        }
+                    <div className='demon-card-grid'>
+                            {giant.map((giant) => {
+                                return (
+                                    <GiantCard 
+                                    key={giant.id}
+                                    role={giant.role}
+                                    />
+                                );
+                            })}
+                        </div>
+                        
                     </CardGroup>
                 </Container>
             </div>
