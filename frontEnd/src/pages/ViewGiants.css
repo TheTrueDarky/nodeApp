@@ -1,16 +1,53 @@
+.view-giants {
+    text-align: center;
+    
+  }
+  
+  .view-giants h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    font-family: Arial, sans-serif;
+    
+    
+  }
+  
+  .search-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+  
+  .search-box input[type="text"] {
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0.5em;
+    font-size: 1em;
+  }
+  
+  .search-box select {
+    width: 15%;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0.5em;
+    font-size: 1em;
+  }
+  
+  .giant-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1em;
+  }
 
-.alert {
-    text-align: left;
-    max-width: 50rem;
-    margin: 0 auto;
-    margin-top: 3rem;
-}
-
-.card-group {
-
+  .giant-card-grid {
     display: flex;
     flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: center;
-
-}
+  }
+  
+  .giant-card-grid > * {
+    width: 25%;
+  }
+  
+  
+  

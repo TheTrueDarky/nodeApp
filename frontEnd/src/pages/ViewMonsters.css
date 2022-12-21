@@ -1,9 +1,9 @@
-.view-primordials {
+.view-monsters {
     text-align: center;
     
   }
   
-  .view-primordials h1 {
+  .view-monsters h1 {
     font-size: 2em;
     margin-bottom: 0.5em;
     font-family: Arial, sans-serif;
@@ -34,18 +34,18 @@
     font-size: 1em;
   }
   
-  .primordial-card-grid {
+  .monster-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1em;
   }
 
-  .primordial-card-grid {
+  .monster-card-grid {
     display: flex;
     flex-wrap: wrap;
   }
   
-  .primordial-card-grid > * {
+  .monster-card-grid > * {
     width: 25%;
   }
   

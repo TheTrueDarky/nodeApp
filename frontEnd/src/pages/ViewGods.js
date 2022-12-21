@@ -31,15 +31,16 @@ function ViewGods() {
                 <Container>
                     <h1>View Gods</h1>
                     <CardGroup>
-                        {
-                            god.map((god) => {
-                                return <GodCard 
-                                key={god.id}
-                                responsibility={god.responsibility}
-
-                                />
-                            })
-                        }
+                    <div className='god-card-grid'>
+                            {god.map((god) => {
+                                return (
+                                    <GodCard
+                                        key={god.id}
+                                        responsibility={god.responsibility}
+                                    />
+                                );
+                            })}
+                        </div>
                     </CardGroup>
                 </Container>
             </div>

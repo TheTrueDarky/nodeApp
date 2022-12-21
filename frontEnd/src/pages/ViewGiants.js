@@ -31,7 +31,7 @@ function ViewGiants() {
                 <Container>
                     <h1>View Giants</h1>
                     <CardGroup>
-                    <div className='demon-card-grid'>
+                    <div className='giant-card-grid'>
                             {giant.map((giant) => {
                                 return (
                                     <GiantCard 
