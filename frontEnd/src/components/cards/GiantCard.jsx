@@ -8,7 +8,7 @@ function GiantCard(props) {
         return url;
     }
     return (
-        <Card key={props.id}>
+        <Card style={{ overflow: "hidden", maxHeight: "1200px", border: "1px solid black", borderStyle: "double", background: "radial-gradient(circle, #ffffff, #dddddd)", fontFamily: "Arial, sans-serif" }} key={props.id}>
             <Card.Body>
                 <Card.Title>{props.role}</Card.Title>
                 <Card.Text>: {props.role}</Card.Text>

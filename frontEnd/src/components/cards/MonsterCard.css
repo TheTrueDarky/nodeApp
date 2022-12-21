@@ -1,9 +1,77 @@
 .card {
     width: 18rem;
     margin: 1rem;
+    text-align: left;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 @media (min-width: 576px){
     .card {
         min-width: 50%;
     }
 }
+
+.MonsterCard {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }  
+  
+.MonsterCard .Card {
+  /* add your styles here */
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  width: 300px;
+  max-width: 100%;
+  border: 2px solid black; /* added black border */
+}
+
+  
+  
+  .MonsterCard .Card:hover {
+    /* add your styles here */
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .MonsterCard .Card-body {
+    /* add your styles here */
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  
+  .MonsterCard .Card-title {
+    /* add your styles here */
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .MonsterCard .Card-text {
+    /* add your styles here */
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
+  .MonsterCard .Button {
+    /* add your styles here */
+    margin: 10px;
+  }
+  
+  .MonsterCard .btn-danger {
+    /* add your styles here */
+    background-color: red;
+    border-color: red;
+  }
