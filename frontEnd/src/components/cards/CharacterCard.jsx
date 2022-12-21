@@ -71,7 +71,7 @@ function CharacterCard(props) {
                     <Card.Text>Character type: {props.character_type}</Card.Text>
                     <Card.Text>link id: {props.link_id}</Card.Text>
                     
-                    <Card.Text>Demon ID: {props.demon_id}</Card.Text>
+                    {/* <Card.Text>Demon ID: {props.demon_id}</Card.Text>
                     <Card.Text>Demon Type: {props.demon_type}</Card.Text>
                     <Card.Text>Demon Ability: {props.ability}</Card.Text>
 
@@ -89,7 +89,7 @@ function CharacterCard(props) {
                     <Card.Text>Mortal Job: {props.job}</Card.Text>
 
                     <Card.Text>Primordial ID: {props.primodial_id}</Card.Text>
-                    <Card.Text>Primordial Department: {props.Department}</Card.Text>
+                    <Card.Text>Primordial Department: {props.Department}</Card.Text> */}
 
                     <Card.Text>Author notes: {props.auth_notes}</Card.Text>
                     <Card.Text>Comments: {props.comments}</Card.Text>
