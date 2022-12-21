@@ -86,6 +86,14 @@ function AddCharacters() {
                             placeholder='Enter First Name'
                             onChange={e => setFirst_Name(e.target.value)}
                             required/>
+                            {/* <Form.Control
+                            type='text'
+                            placeholder='Enter First Name'
+                            onChange={e => setFirst_Name(e.target.value)}
+                            pattern='^[A-Z]'
+                            required
+                            onInvalid={e => e.target.setCustomValidity('Input must start with an uppercase letter')}
+                        /> */}
                     </Form.Group>
                     <Form.Group className='form-group' controlId='surname'>
                         <label>Surname:</label>
