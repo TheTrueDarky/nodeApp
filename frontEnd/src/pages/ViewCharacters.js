@@ -96,7 +96,10 @@ function ViewCharacters() {
                                     deaths={character.deaths}
                                     character_type={character.character_type}
                                     link_id={character.link_id}
+
+                                    demon_id={character.demon_id}
                                     demon_type={"TESTING"}
+
                                     auth_notes={character.auth_notes}
                                     comments={character.comments}
 
