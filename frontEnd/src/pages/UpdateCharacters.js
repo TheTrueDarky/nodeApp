@@ -125,7 +125,7 @@ return (
                     <Form.Control 
                         type='text'
                         placeholder={characters.first_name}
-                        onChange={e => setFirst_Name(e.target.value)}
+                        onChange={e => setFirst_Name(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
                         />
                 </Form.Group>
                 <Form.Group className='form-group' controlId='surname'>
@@ -133,16 +133,23 @@ return (
                     <Form.Control 
                         type='text'
                         placeholder={characters.surname}
-                        onChange={e => setSurname(e.target.value)}
+                        onChange={e => setSurname(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
                         />
                 </Form.Group>
                 <Form.Group className='form-group' controlId='gender'>
                     <label>Gender:</label>
-                    <Form.Control 
+                    {/* <Form.Control 
                         type='text'
                         placeholder={characters.gender}
                         onChange={e => setGender(e.target.value)}
-                        /> 
+                        />  */}
+                        <Form.Select aria-label="Default select example" placeholder={characters.gender} onChange={e => setGender(e.target.value)}
+                        >
+                            <option>Choose Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </Form.Select>
                         
                 </Form.Group>
                 <Form.Group className='form-group' controlId='age'>
@@ -173,13 +180,13 @@ return (
                         <Form.Select aria-label="Default select example" placeholder={characters.character_type} onChange={e => setCharacter_Type(e.target.value)}
                         >
                             <option>Choose type of character</option>
-                            <option value="demon">Demon</option>
-                            <option value="giant">Giant</option>
-                            <option value="god">God</option>
-                            <option value="goddess">Goddess</option>
-                            <option value="monster">Monster</option>
-                            <option value="mortal">Mortal</option>
-                            <option value="primordial">Primordial</option>
+                            <option value="Demon">Demon</option>
+                            <option value="Giant">Giant</option>
+                            <option value="God">God</option>
+                            <option value="Goddess">Goddess</option>
+                            <option value="Monster">Monster</option>
+                            <option value="Mortal">Mortal</option>
+                            <option value="Primordial">Primordial</option>
                             <option value="Titan">Titan</option>
                             <option value="Titaness">Titaness</option>
                             <option value="Demi-god">Demi-god</option>
@@ -192,7 +199,7 @@ return (
                     <Form.Control 
                         type='text'
                         placeholder={characters.auth_notes}
-                        onChange={e => setAuth_Notes(e.target.value)}
+                        onChange={e => setAuth_Notes(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
                         />
                 </Form.Group>
                 <Form.Group className='form-group' controlId='comments'>
@@ -200,7 +207,7 @@ return (
                     <Form.Control 
                         type='text'
                         placeholder={characters.comments}
-                        onChange={e => setComments(e.target.value)}
+                        onChange={e => setComments(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
                         />
                 </Form.Group>
                 <Button variant='primary' type='submit'>

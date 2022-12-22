@@ -84,32 +84,31 @@ function AddCharacters() {
                         <Form.Control 
                             type='text'
                             placeholder='Enter First Name'
-                            onChange={e => setFirst_Name(e.target.value)}
+                            onChange={e => setFirst_Name(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
                             required/>
-                            {/* <Form.Control
-                            type='text'
-                            placeholder='Enter First Name'
-                            onChange={e => setFirst_Name(e.target.value)}
-                            pattern='^[A-Z]'
-                            required
-                            onInvalid={e => e.target.setCustomValidity('Input must start with an uppercase letter')}
-                        /> */}
                     </Form.Group>
                     <Form.Group className='form-group' controlId='surname'>
                         <label>Surname:</label>
                         <Form.Control 
                             type='text'
                             placeholder='Enter Surname'
-                            onChange={e => setSurname(e.target.value)}
+                            onChange={e => setSurname(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
                             />
                     </Form.Group>
                     <Form.Group className='form-group' controlId='gender'>
                         <label>Gender:</label>
-                        <Form.Control 
+                        {/* <Form.Control 
                             type='text'
                             placeholder='Enter gender'
                             onChange={e => setGender(e.target.value)}
-                            required/> 
+                            required/> */} 
+                            <Form.Select aria-label="Default select example" onChange={e => setGender(e.target.value)}
+                            required>
+                                <option>Choose Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </Form.Select>
                             
                     </Form.Group>
                     <Form.Group className='form-group' controlId='age'>
@@ -159,7 +158,7 @@ function AddCharacters() {
                         <Form.Control 
                             type='text'
                             placeholder='Enter author notes'
-                            onChange={e => setAuth_Notes(e.target.value)}
+                            onChange={e => setAuth_Notes(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
                             />
                     </Form.Group>
                     <Form.Group className='form-group' controlId='comments'>
@@ -167,7 +166,7 @@ function AddCharacters() {
                         <Form.Control 
                             type='text'
                             placeholder='Enter comments'
-                            onChange={e => setComments(e.target.value)}
+                            onChange={e => setComments(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
                             />
                     </Form.Group>
                     <Button variant='primary' type='submit'>
