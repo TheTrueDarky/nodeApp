@@ -97,11 +97,6 @@ function AddCharacters() {
                     </Form.Group>
                     <Form.Group className='form-group' controlId='gender'>
                         <label>Gender:</label>
-                        {/* <Form.Control 
-                            type='text'
-                            placeholder='Enter gender'
-                            onChange={e => setGender(e.target.value)}
-                            required/> */} 
                             <Form.Select aria-label="Default select example" onChange={e => setGender(e.target.value)}
                             required>
                                 <option>Choose Gender</option>
@@ -131,11 +126,6 @@ function AddCharacters() {
                     </Form.Group>
                     <Form.Group className='form-group' controlId='character_type'>
                         <label>Character type:</label>
-                        {/* <Form.Control 
-                            type='text'
-                            placeholder='Enter type'
-                            onChange={e => setCharacter_Type(e.target.value)}
-                            required/> */}
                             <Form.Select aria-label="Default select example" onChange={e => setCharacter_Type(e.target.value)}
                             required>
                                 <option>Choose type of character</option>
