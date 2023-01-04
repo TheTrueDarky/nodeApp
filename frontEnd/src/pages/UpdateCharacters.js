@@ -28,37 +28,20 @@ function UpdateCharacters(){
                 try {
                     let data = await getCharacter(id);
                     setCharacters(data);
-                   //Test Load
+                  
                     console.log(data)
                 }
                 catch (e) {
                     setError(e.message);
                 }
             }
-            //?
-            //fetches all data of characters but might cause error
+            
             fetchData();
         }
     }, [characters])
-    //logs the character
-//console.log(characters);
+   
 
 
-const submitData = async (c) => {
-    try {
-        console.log(c)
-        let response = await updateCharacter(c);
-
-        if (response) {
-            setSuccess(true);
-         //   console.log(setSuccess);
-         
-        }
-    }
-    catch (e) {
-        setError(e.message);
-    }
-}
 
 const submitCharacter = async (e) => {
     e.preventDefault();
@@ -89,12 +72,12 @@ const submitCharacter = async (e) => {
         console.log(charr);
         
         try {
-            console.log(charr) // charr is used here instead of c
-            let response = await updateCharacter(charr); // charr is passed to updateCharacter here
+            console.log(charr) 
+            let response = await updateCharacter(charr); 
 
             if (response) {
                 setSuccess(true);
-                window.location.assign("/viewchar"); // Redirect to the viewchar page
+                window.location.assign("/viewchar"); 
             }
         } catch (e) {
             setError(e.message);
@@ -138,11 +121,7 @@ return (
                 </Form.Group>
                 <Form.Group className='form-group' controlId='gender'>
                     <label>Gender:</label>
-                    {/* <Form.Control 
-                        type='text'
-                        placeholder={characters.gender}
-                        onChange={e => setGender(e.target.value)}
-                        />  */}
+                    
                         <Form.Select aria-label="Default select example" placeholder={characters.gender} onChange={e => setGender(e.target.value)}
                         >
                             <option>Choose Gender</option>
@@ -172,11 +151,7 @@ return (
                 </Form.Group>
                 <Form.Group className='form-group' controlId='character_type'>
                     <label>Character type:</label>
-                    {/* <Form.Control 
-                        type='text'
-                        placeholder='Enter type'
-                        onChange={e => setCharacter_Type(e.target.value)}
-                        required/> */}
+                    
                         <Form.Select aria-label="Default select example" placeholder={characters.character_type} onChange={e => setCharacter_Type(e.target.value)}
                         >
                             <option>Choose type of character</option>
@@ -220,7 +195,3 @@ return (
 }
 
 export default UpdateCharacters;
-
-
-//change label to label
-// and className='form-group'
