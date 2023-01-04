@@ -122,7 +122,7 @@ return (
                 <Form.Group className='form-group' controlId='gender'>
                     <label>Gender:</label>
                     
-                        <Form.Select aria-label="Default select example" placeholder={characters.gender} onChange={e => setGender(e.target.value)}
+                        <Form.Select style={{ width: "75%", height: "45px" }} aria-label="Default select example" placeholder={characters.gender} onChange={e => setGender(e.target.value)}
                         >
                             <option>Choose Gender</option>
                             <option value="Male">Male</option>
@@ -152,7 +152,7 @@ return (
                 <Form.Group className='form-group' controlId='character_type'>
                     <label>Character type:</label>
                     
-                        <Form.Select aria-label="Default select example" placeholder={characters.character_type} onChange={e => setCharacter_Type(e.target.value)}
+                        <Form.Select style={{ width: "75%", height: "45px" }} aria-label="Default select example" placeholder={characters.character_type} onChange={e => setCharacter_Type(e.target.value)}
                         >
                             <option>Choose type of character</option>
                             <option value="Demon">Demon</option>
