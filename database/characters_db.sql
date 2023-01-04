@@ -218,6 +218,7 @@ INSERT INTO `characters` (`id`, `first_name`, `surname`, `gender`, `age`, `death
 (197, 'Arlo', 'Kuro', 'Male', 0, 0, 'Demon', NULL, '', ''),
 (200, 'Caria', '', 'Female', 0, 0, 'Demon', NULL, '', ''),
 (201, 'Prometheus', '', 'Male', 0, 0, 'Titan', NULL, '', '');
+(202, 'Winda', 'Kuro', 'Female', 4, 0, 'Goddess', NULL, '', '');
 
 -- --------------------------------------------------------
 
