@@ -173,7 +173,7 @@ return (
                     <label>Author notes:</label>
                     <Form.Control 
                         type='text'
-                        placeholder={characters.auth_notes}
+                        defaultValue={characters.auth_notes}
                         onChange={e => setAuth_Notes(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
                         />
                 </Form.Group>
@@ -181,7 +181,7 @@ return (
                     <label>Comments:</label>
                     <Form.Control 
                         type='text'
-                        placeholder={characters.comments}
+                        defaultValue={characters.comments}
                         onChange={e => setComments(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
                         />
                 </Form.Group>
