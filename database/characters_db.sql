@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `characters`
+-- Database: `characters_db`
 --
 CREATE DATABASE IF NOT EXISTS `characters_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `characters_db`;
