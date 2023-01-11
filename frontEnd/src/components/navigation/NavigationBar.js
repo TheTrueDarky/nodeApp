@@ -20,13 +20,13 @@ function NavigationBar() {
                                     View Characters
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
-                                    <Dropdown.Item as={Link} to="/viewchar">View All Characters</Dropdown.Item>
-                                    <Dropdown.Item as={Link} to="/viewdem">View Demons</Dropdown.Item>
-                                    <Dropdown.Item as={Link} to="/viewgi">View Giants</Dropdown.Item>
-                                    <Dropdown.Item as={Link} to="/viewgo">View Gods</Dropdown.Item>
-                                    <Dropdown.Item as={Link} to="/viewmon">View Monsters</Dropdown.Item>
-                                    <Dropdown.Item as={Link} to="/viewmor">View Mortals</Dropdown.Item>
-                                    <Dropdown.Item as={Link} to="/viewpri">View Primordials</Dropdown.Item>
+                                    <Dropdown.Item as={Link} to="/viewchar">All Characters</Dropdown.Item>
+                                    <Dropdown.Item as={Link} to="/viewdem">Demons</Dropdown.Item>
+                                    <Dropdown.Item as={Link} to="/viewgi">Giants</Dropdown.Item>
+                                    <Dropdown.Item as={Link} to="/viewgo">Gods/Goddess/Titans/Titaness</Dropdown.Item>
+                                    <Dropdown.Item as={Link} to="/viewmon">Monsters</Dropdown.Item>
+                                    <Dropdown.Item as={Link} to="/viewmor">Mortals</Dropdown.Item>
+                                    <Dropdown.Item as={Link} to="/viewpri">Primordials</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </Nav>
