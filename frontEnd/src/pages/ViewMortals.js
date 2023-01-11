@@ -29,7 +29,7 @@ function ViewMortals() {
         return (
             <div className='view-mortals'>
                 <Container>
-                    <h1>View Mortals</h1>
+                    <h1>View Mortal Data</h1>
                     <CardGroup>
                         <div className='mortal-card-grid'>
                             {mortals.map((mortals) => {

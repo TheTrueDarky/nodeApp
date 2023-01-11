@@ -52,7 +52,7 @@ function ViewDemons() {
         return (
             <div className='view-demons'>
                 <Container>
-                    <h1>View Demons</h1>
+                    <h1>View Demon Data</h1>
                     <Alert variant='danger'>
                         <Alert.Heading> An error has Occured </Alert.Heading>
                         <p>{(error !== null) ? error : "you currently hae no characters avaliable in your service."}  </p>

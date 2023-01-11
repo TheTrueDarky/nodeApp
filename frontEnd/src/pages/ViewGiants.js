@@ -29,7 +29,7 @@ function ViewGiants() {
         return (
             <div className='view-giants'>
                 <Container>
-                    <h1>View Giants</h1>
+                    <h1>View Giant Data</h1>
                     <CardGroup>
                     <div className='giant-card-grid'>
                             {giant.map((giant) => {

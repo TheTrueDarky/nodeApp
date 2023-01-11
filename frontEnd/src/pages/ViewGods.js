@@ -29,7 +29,7 @@ function ViewGods() {
         return (
             <div className='view-Gods'>
                 <Container>
-                    <h1>View Gods</h1>
+                    <h1>View God Data</h1>
                     <CardGroup>
                     <div className='god-card-grid'>
                             {god.map((god) => {
