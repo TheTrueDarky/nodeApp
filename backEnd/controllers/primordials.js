@@ -15,7 +15,7 @@ getAll = async (req, res) =>{
 getById = async (req, res) =>{
     const id =req.params.id;
     try{
-        const mortal = await Primordial.findByPk(id);
+        const primordial = await Primordial.findByPk(id);
         
         if(primordial==null || primordial.length==0){
             throw new Error("Unable to find mortal with id " + id);

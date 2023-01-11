@@ -201,7 +201,7 @@ describe('Characters route id', () => {
           res.should.have.status(200);
           res.should.be.json;
           res.body.should.be.a('object');
-          res.should.equal(1);
+          res.body.id.should.equal(1);
           done();
         });
     });
