@@ -18,6 +18,7 @@ var should = chai.should();
 chai.use(chaiHttp);
 
 
+
 //get route
 describe('Characters route', () => {
   it('should return a list of characters', (done) => {
@@ -249,4 +250,113 @@ describe('Characters route id', () => {
     });
   });
   
+//create for character
+
+describe('/POST create a new character', () => {
+  it('it should POST a new character', (done) => {
+      const character = {
+          id: 1000,
+          first_name: 'Jane',
+          surname: 'Doe',
+          gender: 'Female',
+          age: 25,
+          deaths: 0,
+          character_type: 'Mortal',
+          link_id: 1000,
+          auth_notes: 'none',
+          comments: 'none'
+      };
+      chai.request(router)
+          .post('/create')
+          .send(character)
+          .end((err, res) => {
+            console.log(res,err)
+              res.should.have.status(201);
+              res.body.should.be.a('object');
+              res.body.should.have.property('first_name').eql(character.first_name);
+              res.body.should.have.property('surname').eql(character.surname);
+              res.body.should.have.property('gender').eql(character.gender);
+              res.body.should.have.property('age').eql(character.age);
+              res.body.should.have.property('deaths').eql(character.deaths);
+              res.body.should.have.property('character_type').eql(character.character_type);
+              res.body.should.have.property('link_id').eql(character.link_id);
+              res.body.should.have.property('auth_notes').eql(character.auth_notes);
+              res.body.should.have.property('comments').eql(character.comments);
+              done();
+          });
+  });
+  it('it should return an error if essential fields are missing', (done) => {
+      const character = {
+          id: 1000,
+          first_name: 'Jane',
+          surname: 'Doe',
+          gender: 'Female',
+          age: 25,
+          deaths: 0,
+          character_type: 'Mortal',
+          link_id: 1000,
+          auth_notes: 'none',
+          comments: 'none'
+      };
+      chai.request(router)
+          .post('/create')
+          .send(character)
+          .end((err, res) => {
+              res.should.have.status(400);
+              res.body.should.be.a('object');
+              res.body.should.have.property('error').eql('Essential fields missing');
+              done();
+          });
+  });
+});
+
+
+//update for character
+
+it('it should UPDATE a character', (done) => {
+  chai.request(server)
+      .put('/characters/:id')
+      .send({
+          id: 1000,
+          first_name: 'Jane',
+          surname: 'Doe',
+          gender: 'Female',
+          age: 30,
+          deaths: 3,
+          character_type: 'Mortal',
+          link_id: 1000,
+          auth_notes: 'updated',
+          comments: 'updated'
+      })
+      .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('first_name').eql('Jane');
+          res.body.should.have.property('surname').eql('Doe');
+          res.body.should.have.property('gender').eql('Female');
+          res.body.should.have.property('age').eql(30);
+          res.body.should.have.property('deaths').eql(3);
+          res.body.should.have.property('character_type').eql('Mortal');
+          res.body.should.have.property('link_id').eql(1000);
+          res.body.should.have.property('auth_notes').eql('updated');
+          res.body.should.have.property('comments').eql('updated');
+          done();
+      });
+});
+
+
+//delete for character
+
+it('it should DELETE a character', (done) => {
+  chai.request(server)
+      .delete('/characters')
+      .send({
+          id: 1000
+      })
+      .end((err, res) => {
+          res.should.have.status(200);
+          res.text.should.eql('Character deleted');
+          done();
+      });
+});
 
