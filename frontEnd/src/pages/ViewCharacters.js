@@ -62,6 +62,8 @@ function ViewCharacters() {
                             <option value="">All Types</option>
                             <option value="Demon">Demon</option>
                             <option value="Giant">Giant</option>
+                            <option value="Demon Goddess">Demon Goddess</option>
+                            <option value="Demon God">Demon God</option>
                             <option value="God">God</option>
                             <option value="Goddess">Goddess</option>
                             <option value="Monster">Monster</option>
