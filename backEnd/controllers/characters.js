@@ -107,6 +107,17 @@ create = async (req, res) => {
         }
 
         await Character.create(character);
+
+        let jackSparrow = await Character.findAll({
+        });
+
+        jackSparrow = jackSparrow[jackSparrow.length - 1];
+        
+
+        character.id = jackSparrow.dataValues.id;
+
+        
+
         res.status(201).json(character);
     }
 

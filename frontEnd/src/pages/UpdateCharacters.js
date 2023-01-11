@@ -48,11 +48,10 @@ const submitCharacter = async (e) => {
 
     setSuccess(false);
     setError('');
-    console.log(first_name);
+    console.log(id);
     if (first_name != null|| surname || gender || age || deaths || character_type || auth_notes || comments) {
         
         const charr = ({
-            id: id,
             first_name: (first_name == "") ? null : first_name,
             surname: (surname == "") ? null : surname,
             gender: (gender == "") ? null : gender,
@@ -72,8 +71,8 @@ const submitCharacter = async (e) => {
         console.log(charr);
         
         try {
-            console.log(charr) 
-            let response = await updateCharacter(charr); 
+            console.log(charr, id) 
+            let response = await updateCharacter(charr, id); 
 
             if (response) {
                 setSuccess(true);

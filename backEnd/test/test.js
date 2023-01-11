@@ -17,7 +17,7 @@ var expect = chai.expect;
 var should = chai.should();
 chai.use(chaiHttp);
 
-//var char_id = 1000;
+var char_id = 0;
 
 //get route
 describe('Characters route', () => {
@@ -251,7 +251,7 @@ describe('Primordials route id', () => {
 });
 
 //create for character
-let char_id;
+
 describe('/POST create a new character', () => {
   it('it should POST a new character', (done) => {
     const character = {
@@ -261,7 +261,7 @@ describe('/POST create a new character', () => {
       age: 25,
       deaths: 0,
       character_type: 'Mortal',
-      link_id: char_id,
+      link_id: null,
       auth_notes: 'none',
       comments: 'none'
     };
@@ -272,6 +272,7 @@ describe('/POST create a new character', () => {
         console.log(res, err)
         res.should.have.status(201);
         res.body.should.be.a('object');
+        char_id = res.body.id;
         res.body.should.have.property('first_name').eql(character.first_name);
         res.body.should.have.property('surname').eql(character.surname);
         res.body.should.have.property('gender').eql(character.gender);
@@ -291,7 +292,7 @@ describe('/POST create a new character', () => {
       age: 25,
       deaths: 0,
       character_type: 'Mortal',
-      link_id: char_id,
+      link_id: null,
       auth_notes: 'none',
       comments: 'none'
     };
@@ -302,7 +303,6 @@ describe('/POST create a new character', () => {
         res.should.have.status(400);
         res.body.should.be.a('object');
         JSON.parse(res.text).error.message.should.be.eql('Essential fields missing');
-        char_id = res.body._id; //set char_id variable
         done();
       });
   });
@@ -310,47 +310,49 @@ describe('/POST create a new character', () => {
 
 
 //update for character
-
-it('it should UPDATE a character', (done) => {
-  chai.request(server)
-    .put('/characters/' + char_id) //Set char_id to created ID;
-    .send({
-      first_name: 'Jane',
-      surname: 'Doe',
-      gender: 'Female',
-      age: 30,
-      deaths: 3,
-      character_type: 'Mortal',
-      link_id: 1000,
-      auth_notes: 'updated',
-      comments: 'updated'
-    })
-    .end((err, res) => {
-      res.should.have.status(200);
-      res.body.should.be.a('object');
-      res.body.should.have.property('first_name').eql('Jane');
-      res.body.should.have.property('surname').eql('Doe');
-      res.body.should.have.property('gender').eql('Female');
-      res.body.should.have.property('age').eql(30);
-      res.body.should.have.property('deaths').eql(3);
-      res.body.should.have.property('character_type').eql('Mortal');
-      res.body.should.have.property('link_id').eql(1000);
-      res.body.should.have.property('auth_notes').eql('updated');
-      res.body.should.have.property('comments').eql('updated');
-      done();
-    });
+describe('/PUT update a character', () => {
+  it('it should UPDATE a character', (done) => {
+    console.log(char_id, "Bollox");
+    chai.request(server)
+      .put('/characters/' + char_id) //Set char_id to created ID;
+      .send({
+        first_name: 'Jane',
+        surname: 'Doe',
+        gender: 'Female',
+        age: 30,
+        deaths: 3,
+        character_type: 'Mortal',
+        link_id: null,
+        auth_notes: 'updated',
+        comments: 'updated'
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        res.body.should.have.property('first_name').eql('Jane');
+        res.body.should.have.property('surname').eql('Doe');
+        res.body.should.have.property('gender').eql('Female');
+        res.body.should.have.property('age').eql(30);
+        res.body.should.have.property('deaths').eql(3);
+        res.body.should.have.property('character_type').eql('Mortal');
+        res.body.should.have.property('auth_notes').eql('updated');
+        res.body.should.have.property('comments').eql('updated');
+        done();
+      });
+  });
 });
 
 
 //delete for character
-
-it('it should DELETE a character', (done) => {
-  chai.request(server)
-    .delete('/characters/' + char_id)//Set char_id to created ID;
-    .end((err, res) => {
-      res.should.have.status(200);
-      res.text.should.eql('Character deleted');
-      done();
-    });
+describe('/DELETE delete character', () => {
+  it('it should DELETE a character', (done) => {
+    chai.request(server)
+      .delete('/characters/' + char_id)//Set char_id to created ID;
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.text.should.eql('Character deleted');
+        done();
+      });
+  });
 });
 

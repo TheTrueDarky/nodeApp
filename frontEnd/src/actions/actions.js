@@ -74,11 +74,11 @@ const addCharacter = async (character) => {
     return response;
 }
 
-const updateCharacter = async (character) => {
+const updateCharacter = async (character, id) => {
 
     console.log(character);
     // debugger;
-    let response = await axios.put(url + "characters", character
+    let response = await axios.put(url + "characters/" + id, character
     ).then(response => {
         return response.data;
     });
