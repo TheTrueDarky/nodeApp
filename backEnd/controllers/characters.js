@@ -116,7 +116,7 @@ create = async (req, res) => {
 }
 
 deleting = async (req, res) =>{
-    const id =req.body.id;
+    const id =req.params.id;
     try{
         const deleted = await Character.destroy({where: {id: id}});
 
@@ -163,7 +163,7 @@ deleting = async (req, res) =>{
 
 update = async (req, res) => {
     try {
-        const id = ('id' in req.body) ? req.body.id : null;
+        const id = req.params.id;
 
         if (id == null) {
             throw new Error("No character id was provided");
@@ -180,10 +180,6 @@ update = async (req, res) => {
         }
 
         const character = {
-            // name: ('name' in req.body) ? req.body.name : prev.name,
-            // release_date: ('release_date' in req.body) ? req.body.release_date : prev.release_date,
-            // Info: ('info' in req.body) ? req.body.info : prev.Info,
-            // esrb_rating: ('esrb' in req.body) ? req.body.esrb : prev.esrb_rating
             first_name: ('first_name' in req.body) ? req.body.first_name : prev.first_name,
             surname: ('surname' in req.body) ? req.body.surname : prev.surname,
             gender: ('gender' in req.body) ? req.body.gender : prev.gender,
@@ -195,7 +191,7 @@ update = async (req, res) => {
             comments: ('comments' in req.body) ? req.body.comments : prev.comments
             
         };
-
+console.log(('surname' in req.body))
         if (id==null || character.first_name==null || character.gender==null || character.age==null || character.deaths==null){
             
             throw new Error("Essential fields missing");

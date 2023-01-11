@@ -7,7 +7,7 @@ router.get('/desc/:value', controller.getByDesc);
 router.get('/:id', controller.getById);
 
 router.post('/', controller.create);
-router.delete('/',controller.deleting);
-router.put('/', controller.update);
+router.delete('/:id',controller.deleting);
+router.put('/:id', controller.update);
 
 module.exports = router;

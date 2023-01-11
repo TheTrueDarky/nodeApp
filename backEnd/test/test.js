@@ -17,7 +17,7 @@ var expect = chai.expect;
 var should = chai.should();
 chai.use(chaiHttp);
 
-
+//var char_id = 1000;
 
 //get route
 describe('Characters route', () => {
@@ -126,187 +126,185 @@ describe('Primordials route', () => {
 
 //test for non existant route
 describe('Non-existent route', () => {
-    it('should return a 404 status', (done) => {
-      chai.request(server)
-        .get('/non-existent-route')
-        .end((err, res) => {
-          res.should.have.status(404);
-          done();
-        });
-    });
+  it('should return a 404 status', (done) => {
+    chai.request(server)
+      .get('/non-existent-route')
+      .end((err, res) => {
+        res.should.have.status(404);
+        done();
+      });
   });
-  
+});
+
 //get by id tests
 
 describe('Characters route id', () => {
-    it('should return a character with the specified ID', (done) => {
-      chai.request(server)
-        .get('/characters/1')
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.should.be.json;
-          res.body.should.be.a('object');
-          res.body.id.should.equal(1);
-          done();
-        });
-    });
+  it('should return a character with the specified ID', (done) => {
+    chai.request(server)
+      .get('/characters/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.id.should.equal(1);
+        done();
+      });
   });
-  
-  describe('Links route id', () => {
-    it('should return a link with the specified ID', (done) => {
-      chai.request(server)
-        .get('/link/1')
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.should.be.json;
-          res.body.should.be.a('object');
-          res.body.id.should.equal(1);
-          done();
-        });
-    });
-  });
-  
-  describe('Demons route id', () => {
-    it('should return a demon with the specified ID', (done) => {
-      chai.request(server)
-        .get('/demon/1')
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.should.be.json;
-          res.body.should.be.a('object');
-          res.body.id.should.equal(1);
-          done();
-        });
-    });
-  });
-  
-  describe('Giants route id', () => {
-    it('should return a giant with the specified ID', (done) => {
-      chai.request(server)
-        .get('/giant/1')
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.should.be.json;
-          res.body.should.be.a('object');
-          res.body.id.should.equal(1);
-          done();
-        });
-    });
-  });
-  
-  describe('Gods route id', () => {
-    it('should return a god with the specified ID', (done) => {
-      chai.request(server)
-        .get('/gods/1')
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.should.be.json;
-          res.body.should.be.a('object');
-          res.body.id.should.equal(1);
-          done();
-        });
-    });
-  });
-  
-  describe('Monsters route id', () => {
-    it('should return a monster with the specified ID', (done) => {
-      chai.request(server)
-        .get('/monsters/1')
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.should.be.json;
-          res.body.should.be.a('object');
-          res.body.id.should.equal(1);
-          done();
-        });
-    });
-  });
-  
-  describe('Mortals route', () => {
-    it('should return a mortal with the specified ID', (done) => {
-      chai.request(server)
-        .get('/mortals/1')
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.should.be.json;
-          res.body.should.be.a('object');
-          res.body.id.should.equal(1);
-          done();
-        });
-    });
-  });
-  
-  describe('Primordials route id', () => {
-    it('should return a primordial with the specified ID', (done) => {
-      chai.request(server)
-        .get('/primordials/1')
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.should.be.json;
-          res.body.should.be.a('object');
-          res.body.id.should.equal(1);
-          done();
-        });
-    });
-  });
-  
-//create for character
+});
 
+describe('Links route id', () => {
+  it('should return a link with the specified ID', (done) => {
+    chai.request(server)
+      .get('/link/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.id.should.equal(1);
+        done();
+      });
+  });
+});
+
+describe('Demons route id', () => {
+  it('should return a demon with the specified ID', (done) => {
+    chai.request(server)
+      .get('/demon/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.id.should.equal(1);
+        done();
+      });
+  });
+});
+
+describe('Giants route id', () => {
+  it('should return a giant with the specified ID', (done) => {
+    chai.request(server)
+      .get('/giant/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.id.should.equal(1);
+        done();
+      });
+  });
+});
+
+describe('Gods route id', () => {
+  it('should return a god with the specified ID', (done) => {
+    chai.request(server)
+      .get('/gods/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.id.should.equal(1);
+        done();
+      });
+  });
+});
+
+describe('Monsters route id', () => {
+  it('should return a monster with the specified ID', (done) => {
+    chai.request(server)
+      .get('/monsters/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.id.should.equal(1);
+        done();
+      });
+  });
+});
+
+describe('Mortals route', () => {
+  it('should return a mortal with the specified ID', (done) => {
+    chai.request(server)
+      .get('/mortals/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.id.should.equal(1);
+        done();
+      });
+  });
+});
+
+describe('Primordials route id', () => {
+  it('should return a primordial with the specified ID', (done) => {
+    chai.request(server)
+      .get('/primordials/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.id.should.equal(1);
+        done();
+      });
+  });
+});
+
+//create for character
+let char_id;
 describe('/POST create a new character', () => {
   it('it should POST a new character', (done) => {
-      const character = {
-          id: 1000,
-          first_name: 'Jane',
-          surname: 'Doe',
-          gender: 'Female',
-          age: 25,
-          deaths: 0,
-          character_type: 'Mortal',
-          link_id: 1000,
-          auth_notes: 'none',
-          comments: 'none'
-      };
-      chai.request(router)
-          .post('/create')
-          .send(character)
-          .end((err, res) => {
-            console.log(res,err)
-              res.should.have.status(201);
-              res.body.should.be.a('object');
-              res.body.should.have.property('first_name').eql(character.first_name);
-              res.body.should.have.property('surname').eql(character.surname);
-              res.body.should.have.property('gender').eql(character.gender);
-              res.body.should.have.property('age').eql(character.age);
-              res.body.should.have.property('deaths').eql(character.deaths);
-              res.body.should.have.property('character_type').eql(character.character_type);
-              res.body.should.have.property('link_id').eql(character.link_id);
-              res.body.should.have.property('auth_notes').eql(character.auth_notes);
-              res.body.should.have.property('comments').eql(character.comments);
-              done();
-          });
+    const character = {
+      first_name: 'Jane',
+      surname: 'Doe',
+      gender: 'Female',
+      age: 25,
+      deaths: 0,
+      character_type: 'Mortal',
+      link_id: char_id,
+      auth_notes: 'none',
+      comments: 'none'
+    };
+    chai.request(server)
+      .post('/characters/')
+      .send(character)
+      .end((err, res) => {
+        console.log(res, err)
+        res.should.have.status(201);
+        res.body.should.be.a('object');
+        res.body.should.have.property('first_name').eql(character.first_name);
+        res.body.should.have.property('surname').eql(character.surname);
+        res.body.should.have.property('gender').eql(character.gender);
+        res.body.should.have.property('age').eql(character.age);
+        res.body.should.have.property('deaths').eql(character.deaths);
+        res.body.should.have.property('character_type').eql(character.character_type);
+        res.body.should.have.property('link_id').eql(character.link_id);
+        res.body.should.have.property('auth_notes').eql(character.auth_notes);
+        res.body.should.have.property('comments').eql(character.comments);
+        done();
+      });
   });
   it('it should return an error if essential fields are missing', (done) => {
-      const character = {
-          id: 1000,
-          first_name: 'Jane',
-          surname: 'Doe',
-          gender: 'Female',
-          age: 25,
-          deaths: 0,
-          character_type: 'Mortal',
-          link_id: 1000,
-          auth_notes: 'none',
-          comments: 'none'
-      };
-      chai.request(router)
-          .post('/create')
-          .send(character)
-          .end((err, res) => {
-              res.should.have.status(400);
-              res.body.should.be.a('object');
-              res.body.should.have.property('error').eql('Essential fields missing');
-              done();
-          });
+    const character = {
+      surname: 'Doe',
+      gender: 'Female',
+      age: 25,
+      deaths: 0,
+      character_type: 'Mortal',
+      link_id: char_id,
+      auth_notes: 'none',
+      comments: 'none'
+    };
+    chai.request(server)
+      .post('/characters/')
+      .send(character)
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.body.should.be.a('object');
+        JSON.parse(res.text).error.message.should.be.eql('Essential fields missing');
+        char_id = res.body._id; //set char_id variable
+        done();
+      });
   });
 });
 
@@ -315,33 +313,32 @@ describe('/POST create a new character', () => {
 
 it('it should UPDATE a character', (done) => {
   chai.request(server)
-      .put('/characters/:id')
-      .send({
-          id: 1000,
-          first_name: 'Jane',
-          surname: 'Doe',
-          gender: 'Female',
-          age: 30,
-          deaths: 3,
-          character_type: 'Mortal',
-          link_id: 1000,
-          auth_notes: 'updated',
-          comments: 'updated'
-      })
-      .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a('object');
-          res.body.should.have.property('first_name').eql('Jane');
-          res.body.should.have.property('surname').eql('Doe');
-          res.body.should.have.property('gender').eql('Female');
-          res.body.should.have.property('age').eql(30);
-          res.body.should.have.property('deaths').eql(3);
-          res.body.should.have.property('character_type').eql('Mortal');
-          res.body.should.have.property('link_id').eql(1000);
-          res.body.should.have.property('auth_notes').eql('updated');
-          res.body.should.have.property('comments').eql('updated');
-          done();
-      });
+    .put('/characters/' + char_id) //Set char_id to created ID;
+    .send({
+      first_name: 'Jane',
+      surname: 'Doe',
+      gender: 'Female',
+      age: 30,
+      deaths: 3,
+      character_type: 'Mortal',
+      link_id: 1000,
+      auth_notes: 'updated',
+      comments: 'updated'
+    })
+    .end((err, res) => {
+      res.should.have.status(200);
+      res.body.should.be.a('object');
+      res.body.should.have.property('first_name').eql('Jane');
+      res.body.should.have.property('surname').eql('Doe');
+      res.body.should.have.property('gender').eql('Female');
+      res.body.should.have.property('age').eql(30);
+      res.body.should.have.property('deaths').eql(3);
+      res.body.should.have.property('character_type').eql('Mortal');
+      res.body.should.have.property('link_id').eql(1000);
+      res.body.should.have.property('auth_notes').eql('updated');
+      res.body.should.have.property('comments').eql('updated');
+      done();
+    });
 });
 
 
@@ -349,14 +346,11 @@ it('it should UPDATE a character', (done) => {
 
 it('it should DELETE a character', (done) => {
   chai.request(server)
-      .delete('/characters')
-      .send({
-          id: 1000
-      })
-      .end((err, res) => {
-          res.should.have.status(200);
-          res.text.should.eql('Character deleted');
-          done();
-      });
+    .delete('/characters/' + char_id)//Set char_id to created ID;
+    .end((err, res) => {
+      res.should.have.status(200);
+      res.text.should.eql('Character deleted');
+      done();
+    });
 });
 
