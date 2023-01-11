@@ -29,7 +29,7 @@ function ViewMortals() {
         return (
             <div className='view-mortals'>
                 <Container>
-                    <h1>View Mortal Data</h1>
+                    <h1>Mortal Data</h1>
                     <CardGroup>
                         <div className='mortal-card-grid'>
                             {mortals.map((mortals) => {
@@ -51,7 +51,7 @@ function ViewMortals() {
         return (
             <div className='view-mortals'>
                 <Container>
-                    <h1>View Mortals</h1>
+                    <h1>Mortal Data</h1>
                     <Alert variant='danger'>
                         <Alert.Heading> An error has Occured </Alert.Heading>
                         <p>{(error !== null) ? error : "you currently hae no characters avaliable in your service."}  </p>

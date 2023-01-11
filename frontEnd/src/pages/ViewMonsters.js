@@ -29,7 +29,7 @@ function ViewMonsters() {
         return (
             <div className='view-monsters'>
                 <Container>
-                    <h1>View Monster Data</h1>
+                    <h1>Monster Data</h1>
                     <CardGroup>
                     <div className='monster-card-grid'>
                             {monsters.map((monsters) => {
@@ -51,7 +51,7 @@ function ViewMonsters() {
         return (
             <div className='view-monsters'>
                 <Container>
-                    <h1>View Monsters</h1>
+                    <h1>Monster Data</h1>
                     <Alert variant='danger'>
                         <Alert.Heading> An error has Occured </Alert.Heading>
                         <p>{(error !== null) ? error : "you currently hae no characters avaliable in your service."}  </p>

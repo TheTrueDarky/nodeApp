@@ -29,7 +29,7 @@ function ViewGods() {
         return (
             <div className='view-Gods'>
                 <Container>
-                    <h1>View God Data</h1>
+                    <h1>God/Goddess/Titan/Titaness Data</h1>
                     <CardGroup>
                     <div className='god-card-grid'>
                             {god.map((god) => {
@@ -50,7 +50,7 @@ function ViewGods() {
         return (
             <div className='view-Gods'>
                 <Container>
-                    <h1>View Gods</h1>
+                    <h1>God/Goddess/Titan/Titaness Data</h1>
                     <Alert variant='danger'>
                         <Alert.Heading> An error has Occured </Alert.Heading>
                         <p>{(error !== null ) ? error: "you currently hae no characters avaliable in your service."}  </p>

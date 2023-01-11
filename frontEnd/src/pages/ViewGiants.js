@@ -29,7 +29,7 @@ function ViewGiants() {
         return (
             <div className='view-giants'>
                 <Container>
-                    <h1>View Giant Data</h1>
+                    <h1>Giant Data</h1>
                     <CardGroup>
                     <div className='giant-card-grid'>
                             {giant.map((giant) => {
@@ -51,7 +51,7 @@ function ViewGiants() {
         return (
             <div className='view-giants'>
                 <Container>
-                    <h1>View Giants</h1>
+                    <h1>Giant Data</h1>
                     <Alert variant='danger'>
                         <Alert.Heading> An error has Occured </Alert.Heading>
                         <p>{(error !== null ) ? error: "you currently hae no characters avaliable in your service."}  </p>

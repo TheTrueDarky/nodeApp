@@ -29,7 +29,7 @@ function ViewDemons() {
         return (
             <div className='view-demons'>
                 <Container>
-                    <h1>View Demons</h1>
+                    <h1>Demon Data</h1>
                     <CardGroup>
                         <div className='demon-card-grid'>
                             {demon.map((demon) => {

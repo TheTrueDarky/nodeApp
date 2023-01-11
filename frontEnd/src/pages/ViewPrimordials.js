@@ -29,7 +29,7 @@ function ViewPrimordials() {
         return (
             <div className='view-primordials'>
                 <Container>
-                    <h1>View Primordial Data</h1>
+                    <h1>Primordial Data</h1>
                     <CardGroup>
                         <div className='primordial-card-grid'>
                             {primordials.map((primordials) => {
@@ -50,7 +50,7 @@ function ViewPrimordials() {
         return (
             <div className='view-primordials'>
                 <Container>
-                    <h1>View Primordials</h1>
+                    <h1>Primordial Data</h1>
                     <Alert variant='danger'>
                         <Alert.Heading> An error has Occured </Alert.Heading>
                         <p>{(error !== null) ? error : "you currently hae no characters avaliable in your service."}  </p>
