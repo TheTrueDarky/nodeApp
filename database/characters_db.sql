@@ -240,6 +240,8 @@ CREATE TABLE IF NOT EXISTS `demon` (
 
 INSERT INTO `demon` (`id`, `demon_type`, `ability`) VALUES
 (1, NULL, 'Hellish');
+(2, 'Succubus', 'Charm'),
+(3, 'Destroyer', 'ReWrite');
 
 -- --------------------------------------------------------
 
@@ -260,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `giants` (
 
 INSERT INTO `giants` (`id`, `role`) VALUES
 (1, 'King of the Giants');
-
+(2, 'Killing Gods');
 -- --------------------------------------------------------
 
 --
