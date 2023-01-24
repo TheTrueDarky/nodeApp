@@ -87,9 +87,10 @@ const updateCharacter = async (character, id) => {
 }
 
 const deleteChar = async(id) => {
-    let response = await axios.delete(url + "characters", {data: {id : id}}).then(response =>{
+    let response = await axios.delete(url + "characters/" + id).then(response =>{
         return response.data;
     });
+    
 
     return response;
 }
