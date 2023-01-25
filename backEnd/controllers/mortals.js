@@ -66,7 +66,7 @@ deleting = async (req, res) =>{
 update = async (req, res) =>{
     const id =req.body.id;
 
-    const monster = {
+    const mortal = {
         job: req.body.job
     };
 

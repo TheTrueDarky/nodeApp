@@ -118,6 +118,37 @@ router.get('/:id', controller.getById);
 
 router.post('/', controller.create);
 router.delete('/',controller.deleting);
+
+/**
+ * @swagger
+ * /primordials/:
+ *  put:
+ *      summary: Update a primordial
+ *      description: Update an existing primordials with the provided information
+ *      tags: [Primordials]
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: primordials
+ *          required: true
+ *          schema:
+ *            $ref: '#/definitions/Primordials'
+ *      responses:
+ *          200:
+ *              description: The primordials is updated successfully
+ *              schema:
+ *                  $ref: '#/definitions/Primordials'
+ *          400:
+ *              description: error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ *          404:
+ *              description: The primordial with the specified id does not exist.
+ */
+
 router.put('/', controller.update);
 
 module.exports = router;

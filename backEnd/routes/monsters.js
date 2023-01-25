@@ -121,6 +121,37 @@ router.get('/:id', controller.getById);
 
 router.post('/', controller.create);
 router.delete('/',controller.deleting);
+
+/**
+ * @swagger
+ * /monsters/:
+ *  put:
+ *      summary: Update a monster
+ *      description: Update an existing demon with the provided information
+ *      tags: [Monsters]
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: monster
+ *          required: true
+ *          schema:
+ *            $ref: '#/definitions/Monsters'
+ *      responses:
+ *          200:
+ *              description: The monster is updated successfully
+ *              schema:
+ *                  $ref: '#/definitions/Monsters'
+ *          400:
+ *              description: error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ *          404:
+ *              description: The monster with the specified id does not exist.
+ */
+
 router.put('/', controller.update);
 
 module.exports = router;

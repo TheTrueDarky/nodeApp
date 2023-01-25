@@ -75,7 +75,7 @@ update = async (req, res) =>{
             throw new Error("Essential fields missing");
         }
 
-        await Giant.update(god, {where: {id: id}});
+        await God.update(god, {where: {id: id}});
         
         res.status(200).json(god);
     }

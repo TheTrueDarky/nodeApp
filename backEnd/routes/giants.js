@@ -38,7 +38,7 @@ var router = express.Router();
  *  get:    
  *      summary: Get all giants
  *      description: returns all giants
- *      tags: [Giants]
+ *      tags: [Giant]
  *      produces:
  *        - application/json
  *      responses:
@@ -63,7 +63,7 @@ router.get('/', controller.getAll);
  *  get:    
  *      summary: Get a giant by ID
  *      description: returns a giant with the specified ID
- *      tags: [Giants]
+ *      tags: [Giant]
  *      produces:
  *        - application/json
  *      parameters:
@@ -93,7 +93,7 @@ router.get('/:id', controller.getById);
  *  post:
  *      summary: Create a new giant
  *      description: Creates a new giant with the provided information
- *      tags: [Giants]
+ *      tags: [Giant]
  *      consumes:
  *        - application/json
  *      parameters:
@@ -117,6 +117,37 @@ router.get('/:id', controller.getById);
 
 router.post('/', controller.create);
 router.delete('/',controller.deleting);
+
+/**
+ * @swagger
+ * /giant/:
+ *  put:
+ *      summary: Update a giant
+ *      description: Update an existing demon with the provided information
+ *      tags: [Giant]
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: giant
+ *          required: true
+ *          schema:
+ *            $ref: '#/definitions/Giant'
+ *      responses:
+ *          200:
+ *              description: The giant is updated successfully
+ *              schema:
+ *                  $ref: '#/definitions/Giant'
+ *          400:
+ *              description: error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ *          404:
+ *              description: The giant with the specified id does not exist.
+ */
+
 router.put('/', controller.update);
 
 module.exports = router;

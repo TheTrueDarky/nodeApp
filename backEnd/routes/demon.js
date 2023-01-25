@@ -126,26 +126,33 @@ router.post('/', controller.create);
  * /demon/:
  *  put:
  *      summary: Update a demon
- *      description: Update an existing demon
+ *      description: Update an existing demon with the provided information
  *      tags: [Demons]
- *      produces:
- *          - application/json
- *      requestBody:
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: demon
  *          required: true
- *          content:
- *              application/json:
- *                  schema:
- *                      $ref: '#/definitions/Demon'
+ *          schema:
+ *            $ref: '#/definitions/Demon'
  *      responses:
  *          200:
- *              description: Demon updated successfully
+ *              description: The demon is updated successfully
+ *              schema:
+ *                  $ref: '#/definitions/Demon'
  *          400:
  *              description: error
  *              schema:
  *                  type: object
  *                  items:
  *                      $ref: '#/definitions/Error'
+ *          404:
+ *              description: The demon with the specified id does not exist.
  */
+
+
+
 router.put('/', controller.update);
 
 /**

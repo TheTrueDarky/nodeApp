@@ -117,6 +117,37 @@ router.get('/:id', controller.getById);
 
 router.post('/', controller.create);
 router.delete('/',controller.deleting);
+
+/**
+ * @swagger
+ * /gods/:
+ *  put:
+ *      summary: Update a god
+ *      description: Update an existing god with the provided information
+ *      tags: [Gods]
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: god
+ *          required: true
+ *          schema:
+ *            $ref: '#/definitions/Gods'
+ *      responses:
+ *          200:
+ *              description: The god is updated successfully
+ *              schema:
+ *                  $ref: '#/definitions/Gods'
+ *          400:
+ *              description: error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ *          404:
+ *              description: The god with the specified id does not exist.
+ */
+
 router.put('/', controller.update);
 
 module.exports = router;

@@ -14,7 +14,7 @@ var router = express.Router();
  * definitions:
  *  Mortals:
  *      required:
- *          - name
+ *          - job
  *      properties:
  *          id:
  *              type: integer
@@ -29,7 +29,7 @@ var router = express.Router();
  *              example: 404
  *          message:
  *              type: string
- *              example: No demon with an ID of 2 can be found
+ *              example: No mortal with an ID of 2 can be found
  */
 
 /**
@@ -118,6 +118,38 @@ router.get('/:id', controller.getById);
 
 router.post('/', controller.create);
 router.delete('/',controller.deleting);
+
+//mortals is not defined error????
+/**
+ * @swagger
+ * /mortals/:
+ *  put:
+ *      summary: Update a mortal
+ *      description: Update an existing mortal with the provided information
+ *      tags: [Mortals]
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: mortals
+ *          required: true
+ *          schema:
+ *            $ref: '#/definitions/Mortals'
+ *      responses:
+ *          200:
+ *              description: The mortal is updated successfully
+ *              schema:
+ *                  $ref: '#/definitions/Mortals'
+ *          400:
+ *              description: error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ *          404:
+ *              description: The mortal with the specified id does not exist.
+ */
+
 router.put('/', controller.update);
 
 module.exports = router;
