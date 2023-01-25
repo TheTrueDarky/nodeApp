@@ -155,25 +155,35 @@ router.post('/', controller.create);
 
 router.put('/', controller.update);
 
+//close but response page not found yet exists
 /**
  * @swagger
- * /demon/:
+ * /demon/{id}:
  *  delete:
- *      summary: Delete a demon
- *      description: Delete an existing demon
+ *      summary: Delete a demon by ID
+ *      description: Deletes a demon with the specified ID
  *      tags: [Demons]
  *      produces:
- *          - application/json
+ *        - application/json
+ *      parameters:
+ *        - name: id
+ *          in: path
+ *          required: true
+ *          schema:
+ *            type: integer
  *      responses:
  *          200:
- *              description: Demon deleted successfully
+ *              description: The demon is deleted successfully
  *          400:
  *              description: error
  *              schema:
  *                  type: object
  *                  items:
  *                      $ref: '#/definitions/Error'
+ *          404:
+ *              description: The demon with the specified id does not exist.
  */
+
 router.delete('/',controller.deleting);
 
 module.exports = router;
