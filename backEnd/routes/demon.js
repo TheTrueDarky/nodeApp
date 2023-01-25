@@ -19,9 +19,12 @@ var router = express.Router();
  *          id:
  *              type: integer
  *              example: 3
- *          name:
+ *          demon_type:
  *              type: string
  *              example: Diablo
+ *          ability:
+ *              type: string
+ *              example: death
  *  Error:
  *      properties:
  *          status:
@@ -57,30 +60,27 @@ var router = express.Router();
  */
 router.get('/', controller.getAll);
 
+
 /**
  * @swagger
  * /demon/{id}:
- *  get:
- *      summary: Get a demon by it's ID
- *      description: return a demon with a provided ID
+ *  get:    
+ *      summary: Get a demon by ID
+ *      description: returns a demon with the specified ID
  *      tags: [Demons]
  *      produces:
  *        - application/json
  *      parameters:
- *          - in: path
- *            name: id
- *            schema:
- *              type: integer
- *            required: true
- *            description: id of chosen demon
- *            example: 3
- *     responses:
+ *        - name: id
+ *          in: path
+ *          required: true
+ *          schema:
+ *            type: integer
+ *      responses:
  *          200:
- *              description: returns the specified demon
+ *              description: the demon is returned
  *              schema:
- *                  type: object
- *                  items:
- *                      $ref: '#/definitions/Demon'
+ *                  $ref: '#/definitions/Demon'
  *          400:
  *              description: error
  *              schema:
@@ -88,6 +88,7 @@ router.get('/', controller.getAll);
  *                  items:
  *                      $ref: '#/definitions/Error'
  */
+
 router.get('/:id', controller.getById);
 
 /**
