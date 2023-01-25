@@ -91,6 +91,34 @@ router.get('/', controller.getAll);
 
 router.get('/:id', controller.getById);
 
+/**
+ * @swagger
+ * /monsters/:
+ *  post:
+ *      summary: Create a new monster
+ *      description: Creates a new monster with the provided information
+ *      tags: [Monsters]
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: demon
+ *          required: true
+ *          schema:
+ *            $ref: '#/definitions/Monsters'
+ *      responses:
+ *          201:
+ *              description: The monster is created successfully
+ *              schema:
+ *                  $ref: '#/definitions/monsters'
+ *          400:
+ *              description: error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ */
+
 router.post('/', controller.create);
 router.delete('/',controller.deleting);
 router.put('/', controller.update);

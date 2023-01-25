@@ -87,7 +87,33 @@ router.get('/', controller.getAll);
 
 router.get('/:id', controller.getById);
 
-
+/**
+ * @swagger
+ * /giant/:
+ *  post:
+ *      summary: Create a new giant
+ *      description: Creates a new giant with the provided information
+ *      tags: [Giants]
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: giant
+ *          required: true
+ *          schema:
+ *            $ref: '#/definitions/Giant'
+ *      responses:
+ *          201:
+ *              description: The giant is created successfully
+ *              schema:
+ *                  $ref: '#/definitions/Giant'
+ *          400:
+ *              description: error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ */
 
 router.post('/', controller.create);
 router.delete('/',controller.deleting);

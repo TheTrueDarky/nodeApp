@@ -95,20 +95,20 @@ router.get('/:id', controller.getById);
  * @swagger
  * /demon/:
  *  post:
- *      summary: Create a demon
- *      description: Create a new demon
+ *      summary: Create a new demon
+ *      description: Creates a new demon with the provided information
  *      tags: [Demons]
- *      produces:
- *          - application/json
- *      requestBody:
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: demon
  *          required: true
- *          content:
- *              application/json:
- *                  schema:
- *                      $ref: '#/definitions/Demon'
+ *          schema:
+ *            $ref: '#/definitions/Demon'
  *      responses:
  *          201:
- *              description: Demon created successfully
+ *              description: The demon is created successfully
  *              schema:
  *                  $ref: '#/definitions/Demon'
  *          400:
@@ -118,6 +118,7 @@ router.get('/:id', controller.getById);
  *                  items:
  *                      $ref: '#/definitions/Error'
  */
+
 router.post('/', controller.create);
 
 /**

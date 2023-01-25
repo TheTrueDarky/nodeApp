@@ -88,6 +88,34 @@ router.get('/', controller.getAll);
 
 router.get('/:id', controller.getById);
 
+/**
+ * @swagger
+ * /primordials/:
+ *  post:
+ *      summary: Create a new primordial
+ *      description: Creates a new primordial with the provided information
+ *      tags: [Primordials]
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: primordial
+ *          required: true
+ *          schema:
+ *            $ref: '#/definitions/Primordials'
+ *      responses:
+ *          201:
+ *              description: The primordial is created successfully
+ *              schema:
+ *                  $ref: '#/definitions/Primordials'
+ *          400:
+ *              description: error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ */
+
 router.post('/', controller.create);
 router.delete('/',controller.deleting);
 router.put('/', controller.update);

@@ -87,6 +87,34 @@ router.get('/', controller.getAll);
 
 router.get('/:id', controller.getById);
 
+/**
+ * @swagger
+ * /gods/:
+ *  post:
+ *      summary: Create a new god
+ *      description: Creates a new god with the provided information
+ *      tags: [Gods]
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: god
+ *          required: true
+ *          schema:
+ *            $ref: '#/definitions/Gods'
+ *      responses:
+ *          201:
+ *              description: The god is created successfully
+ *              schema:
+ *                  $ref: '#/definitions/Gods'
+ *          400:
+ *              description: error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ */
+
 router.post('/', controller.create);
 router.delete('/',controller.deleting);
 router.put('/', controller.update);

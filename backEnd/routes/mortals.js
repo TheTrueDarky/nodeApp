@@ -88,6 +88,34 @@ router.get('/', controller.getAll);
 
 router.get('/:id', controller.getById);
 
+/**
+ * @swagger
+ * /mortals/:
+ *  post:
+ *      summary: Create a new mortal
+ *      description: Creates a new mortal with the provided information
+ *      tags: [Mortals]
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - in: body
+ *          name: demon
+ *          required: true
+ *          schema:
+ *            $ref: '#/definitions/Mortals'
+ *      responses:
+ *          201:
+ *              description: The mortal is created successfully
+ *              schema:
+ *                  $ref: '#/definitions/Mortals'
+ *          400:
+ *              description: error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ */
+
 router.post('/', controller.create);
 router.delete('/',controller.deleting);
 router.put('/', controller.update);
