@@ -116,6 +116,37 @@ router.get('/:id', controller.getById);
  */
 
 router.post('/', controller.create);
+
+/**
+ * @swagger
+ * /giant/:
+ *   delete:
+ *      summary: Delete a giant
+ *      description: deletes a giant by id
+ *      tags: [Giant]
+ *      parameters:
+ *          - in: body
+ *            name: id
+ *            description: The id of the giant to delete
+ *            required: true
+ *            schema:
+ *              type: object
+ *              properties:
+ *                id:
+ *                  type: integer
+ *                  example: 3
+ *      responses:
+ *          200:
+ *              description: giant successfully deleted
+ *          400:
+ *              description: Error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ */
+
+
 router.delete('/',controller.deleting);
 
 /**

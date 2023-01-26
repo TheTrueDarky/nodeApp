@@ -117,9 +117,40 @@ router.get('/:id', controller.getById);
  */
 
 router.post('/', controller.create);
+
+/**
+ * @swagger
+ * /mortals/:
+ *   delete:
+ *      summary: Delete a mortal
+ *      description: deletes a mortal by id
+ *      tags: [Mortals]
+ *      parameters:
+ *          - in: body
+ *            name: id
+ *            description: The id of the mortal to delete
+ *            required: true
+ *            schema:
+ *              type: object
+ *              properties:
+ *                id:
+ *                  type: integer
+ *                  example: 3
+ *      responses:
+ *          200:
+ *              description: mortal successfully deleted
+ *          400:
+ *              description: Error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ */
+
+
 router.delete('/',controller.deleting);
 
-//mortals is not defined error????
+
 /**
  * @swagger
  * /mortals/:

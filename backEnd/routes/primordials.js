@@ -117,6 +117,37 @@ router.get('/:id', controller.getById);
  */
 
 router.post('/', controller.create);
+
+/**
+ * @swagger
+ * /primordials/:
+ *   delete:
+ *      summary: Delete a primordial
+ *      description: deletes a primordial by id
+ *      tags: [Primordials]
+ *      parameters:
+ *          - in: body
+ *            name: id
+ *            description: The id of the primordial to delete
+ *            required: true
+ *            schema:
+ *              type: object
+ *              properties:
+ *                id:
+ *                  type: integer
+ *                  example: 3
+ *      responses:
+ *          200:
+ *              description: primordial successfully deleted
+ *          400:
+ *              description: Error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ */
+
+
 router.delete('/',controller.deleting);
 
 /**

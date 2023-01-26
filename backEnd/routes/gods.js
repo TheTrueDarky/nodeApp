@@ -116,6 +116,37 @@ router.get('/:id', controller.getById);
  */
 
 router.post('/', controller.create);
+
+/**
+ * @swagger
+ * /gods/:
+ *   delete:
+ *      summary: Delete a god
+ *      description: deletes a god by id
+ *      tags: [Gods]
+ *      parameters:
+ *          - in: body
+ *            name: id
+ *            description: The id of the god to delete
+ *            required: true
+ *            schema:
+ *              type: object
+ *              properties:
+ *                id:
+ *                  type: integer
+ *                  example: 3
+ *      responses:
+ *          200:
+ *              description: God successfully deleted
+ *          400:
+ *              description: Error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ */
+
+
 router.delete('/',controller.deleting);
 
 /**

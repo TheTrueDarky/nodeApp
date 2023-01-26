@@ -120,6 +120,37 @@ router.get('/:id', controller.getById);
  */
 
 router.post('/', controller.create);
+
+/**
+ * @swagger
+ * /monsters/:
+ *   delete:
+ *      summary: Delete a monster
+ *      description: deletes a monster by id
+ *      tags: [Monsters]
+ *      parameters:
+ *          - in: body
+ *            name: id
+ *            description: The id of the monster to delete
+ *            required: true
+ *            schema:
+ *              type: object
+ *              properties:
+ *                id:
+ *                  type: integer
+ *                  example: 3
+ *      responses:
+ *          200:
+ *              description: Monster successfully deleted
+ *          400:
+ *              description: Error
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: '#/definitions/Error'
+ */
+
+
 router.delete('/',controller.deleting);
 
 /**
