@@ -9,7 +9,6 @@ var router = express.Router();
  *  description: Characters management and administration.
  * */
 
-//add more to character
 /**
 * @swagger
 * definitions:
@@ -17,10 +16,7 @@ var router = express.Router();
 *      required:
 *          - first_name
 *      properties:
-*          id:
-*              type: integer
-*              example: 500
-*          first_Name:
+*          first_name:
 *              type: string
 *              example: Adreanna
 *          surname:
@@ -47,6 +43,9 @@ var router = express.Router();
 *          comments:
 *              type: string
 *              example: Testing
+*          id:
+*              type: integer
+*              example: 500
 *  Error:
 *      properties:
 *          status:
@@ -152,50 +151,70 @@ router.post('/', controller.create);
 
 /**
  * @swagger
- * /characters/:
- *  put:
- *      summary: Update a character
- *      description: Update an existing character
- *      tags: [Characters]
- *      produces:
- *          - application/json
- *      requestBody:
- *          required: true
- *          content:
- *              application/json:
- *                  schema:
- *                      $ref: '#/definitions/Character'
- *      responses:
- *          200:
- *              description: Character updated successfully
- *          400:
- *              description: error
- *              schema:
- *                  type: object
- *                  items:
- *                      $ref: '#/definitions/Error'
+ * /characters/{id}:
+ *   put:
+ *     summary: Update a character
+ *     description: Update an existing character with the provided information
+ *     tags: [Characters]
+ *     consumes:
+ *       - application/json
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: ID of the character to update
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 3
+ *       - in: body
+ *         name: character
+ *         description: The information to update the character with
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/Character'
+ *     responses:
+ *       200:
+ *         description: The character is updated successfully
+ *         schema:
+ *           $ref: '#/definitions/Character'
+ *       400:
+ *         description: error
+ *         schema:
+ *           type: object
+ *           items:
+ *             $ref: '#/definitions/Error'
+ *       404:
+ *         description: The character with the specified id does not exist.
  */
+
 router.put('/:id', controller.update);
 
 /**
  * @swagger
- * /characters/:
- *  delete:
+ * /characters/{id}:
+ *   delete:
  *      summary: Delete a character
- *      description: Delete an existing character
+ *      description: deletes a character by id
  *      tags: [Characters]
- *      produces:
- *          - application/json
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            description: The id of the character to delete
+ *            required: true
+ *            schema:
+ *              type: integer
+ *              example: 3
  *      responses:
  *          200:
- *              description: Character deleted successfully
+ *              description: Character successfully deleted
  *          400:
- *              description: error
+ *              description: Error
  *              schema:
  *                  type: object
  *                  items:
  *                      $ref: '#/definitions/Error'
  */
+
 router.delete('/:id',controller.deleting);
 
 module.exports = router;
